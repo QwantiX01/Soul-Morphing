@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "soul_morphing:block/eternity_vault"
+      "model": "soul_morphing:custom/eternity_vault_particle"
     }
   }
 }

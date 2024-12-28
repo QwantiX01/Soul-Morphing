@@ -8,10 +8,10 @@ import net.minecraft.world.item.SwordItem;
 import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import org.loaders.soul_morphing.items.custom.MistAmulet;
+import org.loaders.soul_morphing.items.extended.MistAmulet;
 
 import static org.loaders.soul_morphing.Soul_morphing.MODID;
-import static org.loaders.soul_morphing.items.ToolMaterials.SOUL_MATERIAL;
+import static org.loaders.soul_morphing.misc.ToolMaterials.SOUL_MATERIAL;
 
 
 public class SoulItems {

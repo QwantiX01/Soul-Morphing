@@ -1,4 +1,4 @@
-package org.loaders.soul_morphing.blocks;
+package org.loaders.soul_morphing.blocks.extended;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;

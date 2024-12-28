@@ -29,7 +29,7 @@ public class Souls {
     public static void addSouls(LivingEntity entity, int souls) {
         if (entity != null)
             if (entity.getAttributes().hasAttribute(SoulAttributes.SOULS_COUNT))
-                if (entity.getAttribute(SoulAttributes.SOULS_COUNT).getBaseValue() + souls > getMaxSouls(entity)) {
+                if (entity.getAttribute(SoulAttributes.SOULS_COUNT).getBaseValue() + souls < getMaxSouls(entity)) {
                     entity.getAttribute(SoulAttributes.SOULS_COUNT).setBaseValue(getSouls(entity) + souls);
                 }
     }

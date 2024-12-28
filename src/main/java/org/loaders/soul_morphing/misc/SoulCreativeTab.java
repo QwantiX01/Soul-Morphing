@@ -1,19 +1,15 @@
-package org.loaders.soul_morphing.items;
+package org.loaders.soul_morphing.misc;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.ItemLike;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import org.loaders.soul_morphing.blocks.SoulBlockItems;
+import org.loaders.soul_morphing.items.SoulItems;
 
-import java.util.Arrays;
 import java.util.function.Supplier;
 
-import static net.neoforged.neoforge.internal.versions.neoforge.NeoForgeVersion.MOD_ID;
 import static org.loaders.soul_morphing.Soul_morphing.MODID;
 
 public class SoulCreativeTab {

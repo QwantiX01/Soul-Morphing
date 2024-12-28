@@ -1,15 +1,8 @@
-package org.loaders.soul_morphing.items;
+package org.loaders.soul_morphing.blocks;
 
-import net.minecraft.core.Holder;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import org.loaders.soul_morphing.blocks.SoulBlocks;
-
-import java.util.function.Supplier;
 
 import static org.loaders.soul_morphing.Soul_morphing.MODID;
 

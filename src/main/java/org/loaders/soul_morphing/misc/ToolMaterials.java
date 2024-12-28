@@ -1,4 +1,4 @@
-package org.loaders.soul_morphing.items;
+package org.loaders.soul_morphing.misc;
 
 import net.minecraft.world.item.ToolMaterial;
 import net.neoforged.neoforge.common.Tags;
