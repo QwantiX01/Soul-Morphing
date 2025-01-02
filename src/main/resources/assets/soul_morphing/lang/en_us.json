@@ -1,7 +1,8 @@
 {
-  "item.soul_morphing.soul_ingot": "Soul ingot",
-  "item.soul_morphing.soul_aiot": "Soul AIOT",
+  "item.soul_morphing.spiritium_ingot": "Spiritium Ingot",
+  "item.soul_morphing.spiritium_multitool": "Spiritium Multitool",
+  "item.soul_morphing.soul_morphist": "Soul Morphist",
   "block.soul_morphing.eternity_vault": "Vault of Eternity",
-  "item.soul_morphing.soul_morpher_sword": "Soul morpher",
-  "itemGroup.soul_morphing.soul_morphing_tab": "Soul Morphing"
+  "itemGroup.soul_morphing.soul_morphing_tab": "Soul Morphing",
+  "enchantment.soul_morphing.soul_deformation": "Soul Deformation"
 }

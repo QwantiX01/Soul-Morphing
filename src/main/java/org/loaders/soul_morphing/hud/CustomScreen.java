@@ -2,6 +2,7 @@ package org.loaders.soul_morphing.hud;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.neoforged.api.distmarker.Dist;
@@ -9,7 +10,7 @@ import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RenderGuiEvent;
-import org.loaders.soul_morphing.attributes.SoulAttributes;
+import org.loaders.soul_morphing.init.SoulAttributes;
 import org.loaders.soul_morphing.util.Souls;
 
 import static org.loaders.soul_morphing.Soul_morphing.MODID;
@@ -34,6 +35,7 @@ public class CustomScreen {
 
         ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(MODID, String.format("gui/soul_bar/soul_bar_%s.png", frame));
         event.getGuiGraphics().blit(resourceLocation -> RenderType.guiTextured(TEXTURE), TEXTURE, 10, height - 96, 0, 0, 12, 86, 12, 86);
+        event.getGuiGraphics().drawString(Minecraft.getInstance().font, Component.literal(Souls.getSouls(player) + "/" + Souls.getMaxSouls(player)), 41, height - 22, -4624154, false);
     }
 
 }

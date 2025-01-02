@@ -1,0 +1,63 @@
+{
+	"format_version": "1.21.20",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.void_furnace",
+				"texture_width": 128,
+				"texture_height": 128,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "bone",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-8, 0, -8], "size": [16, 5, 16], "uv": [0, 0]},
+						{"origin": [5, 5, -8], "size": [3, 11, 16], "uv": [0, 21]},
+						{"origin": [-8, 5, -8], "size": [3, 11, 16], "uv": [38, 21]},
+						{"origin": [-5, 5, 6], "size": [10, 11, 2], "uv": [46, 48]},
+						{"origin": [3, 8, -8], "size": [2, 8, 1], "uv": [70, 54]},
+						{"origin": [-5, 8, -8], "size": [2, 8, 1], "uv": [20, 73]},
+						{"origin": [-3, 9, -8], "size": [6, 7, 1], "uv": [64, 11]},
+						{"origin": [-5, 15, -7], "size": [10, 1, 13], "uv": [0, 48]}
+					]
+				},
+				{
+					"name": "turbinaL",
+					"pivot": [5, 16, 4],
+					"cubes": [
+						{"origin": [2, 16, 1], "size": [6, 2, 6], "uv": [46, 61]},
+						{"origin": [7, 18, 1], "size": [1, 5, 6], "uv": [24, 62]},
+						{"origin": [2, 18, 1], "size": [1, 5, 6], "uv": [64, 0]},
+						{"origin": [3, 18, 6], "size": [4, 5, 1], "uv": [66, 69]},
+						{"origin": [3, 18, 1], "size": [4, 5, 1], "uv": [0, 70]}
+					]
+				},
+				{
+					"name": "turbinaR",
+					"pivot": [-5, 16, 4],
+					"cubes": [
+						{"origin": [-8, 16, 1], "size": [6, 2, 6], "uv": [0, 62]},
+						{"origin": [-3, 18, 1], "size": [1, 5, 6], "uv": [38, 69]},
+						{"origin": [-8, 18, 1], "size": [1, 5, 6], "uv": [52, 69]},
+						{"origin": [-7, 18, 6], "size": [4, 5, 1], "uv": [10, 70]},
+						{"origin": [-7, 18, 1], "size": [4, 5, 1], "uv": [70, 48]}
+					]
+				},
+				{
+					"name": "ore",
+					"pivot": [0, 0, -3],
+					"cubes": [
+						{"origin": [-4, 5, -4], "size": [5, 2, 2], "uv": [0, 0]},
+						{"origin": [-1, 5, -6], "size": [2, 3, 3], "uv": [0, 4]},
+						{"origin": [-2, 5, -7], "size": [1, 1, 2], "uv": [10, 0]},
+						{"origin": [0, 4, -5], "size": [4, 3, 3], "uv": [0, 10]}
+					]
+				}
+			]
+		}
+	]
+}

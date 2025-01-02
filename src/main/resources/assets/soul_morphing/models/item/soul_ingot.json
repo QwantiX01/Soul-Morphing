@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "soul_morphing:item/soul_ingot"
-  }
-}

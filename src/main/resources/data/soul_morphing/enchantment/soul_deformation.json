@@ -1,0 +1,21 @@
+{
+  "description": {
+    "translate": "enchantment.soul_morphing.soul_deformation"
+  },
+  "supported_items": "#soul_morphing:spiritium_armor",
+  "weight": 10,
+  "max_level": 4,
+  "min_cost": {
+    "base": 1,
+    "per_level_above_first": 10
+  },
+  "max_cost": {
+    "base": 6,
+    "per_level_above_first": 10
+  },
+  "anvil_cost": 1,
+  "slots": [
+    "any"
+  ],
+  "exclusive_set": []
+}
