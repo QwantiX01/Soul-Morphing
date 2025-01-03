@@ -8,6 +8,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.loaders.soul_morphing.blocks.animated.display.EternityVaultDisplayItem;
 import org.loaders.soul_morphing.blocks.animated.display.VoidFurnaceDisplayItem;
+import org.loaders.soul_morphing.items.CursedBone;
 import org.loaders.soul_morphing.items.MistAmulet;
 import org.loaders.soul_morphing.items.ScorchingWave;
 import org.loaders.soul_morphing.items.armor.SpiritiumBoots;
@@ -18,7 +19,7 @@ import org.loaders.soul_morphing.items.tools.SoulMorphist;
 import org.loaders.soul_morphing.items.tools.SpiritiumMultitool;
 
 import static org.loaders.soul_morphing.Soul_morphing.MODID;
-import static org.loaders.soul_morphing.init.ToolMaterials.SPIRITIUM_MATERIAL;
+import static org.loaders.soul_morphing.init.data.ToolMaterials.SPIRITIUM_MATERIAL;
 
 
 public class SoulItems {
@@ -82,4 +83,5 @@ public class SoulItems {
     public static final DeferredItem<ArmorItem> SPIRITIUM_LEGGINGS = ITEMS.registerItem("spiritium_leggings", SpiritiumLeggings::new);
     public static final DeferredItem<ArmorItem> SPIRITIUM_BOOTS = ITEMS.registerItem("spiritium_boots", SpiritiumBoots::new);
 
+    public static final DeferredItem<Item> CURSED_BONE = ITEMS.registerItem("cursed_bone", CursedBone::new);
 }

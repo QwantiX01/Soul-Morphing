@@ -15,9 +15,10 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import org.loaders.soul_morphing.entity.custom.CursedSkeletonModel;
-import org.loaders.soul_morphing.entity.custom.CursedSkeletonRenderer;
+import org.loaders.soul_morphing.entity.custom.models.CursedSkeletonModel;
+import org.loaders.soul_morphing.entity.custom.renderers.CursedSkeletonRenderer;
 import org.loaders.soul_morphing.init.*;
+import org.loaders.soul_morphing.init.data.SoulAttributes;
 import org.loaders.soul_morphing.util.Souls;
 import org.slf4j.Logger;
 
@@ -34,6 +35,7 @@ public class Soul_morphing {
         SoulMenus.REGISTRY.register(modEventBus);
         SoulCreativeTab.CREATIVE_MODE_TABS.register(modEventBus);
         SoulEntities.ENTITY_TYPES.register(modEventBus);
+        SoulParticleTypes.REGISTRY.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);

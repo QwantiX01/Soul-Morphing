@@ -6,9 +6,8 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.DiggerItem;
 
 import static org.loaders.soul_morphing.Soul_morphing.MODID;
-import static org.loaders.soul_morphing.init.SoulBlocks.BLOCKS;
 import static org.loaders.soul_morphing.init.SoulItems.ITEMS;
-import static org.loaders.soul_morphing.init.ToolMaterials.SPIRITIUM_MATERIAL;
+import static org.loaders.soul_morphing.init.data.ToolMaterials.SPIRITIUM_MATERIAL;
 
 public class SpiritiumMultitool extends DiggerItem {
     public SpiritiumMultitool() {

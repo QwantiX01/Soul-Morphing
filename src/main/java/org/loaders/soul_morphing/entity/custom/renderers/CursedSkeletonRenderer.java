@@ -1,13 +1,11 @@
-package org.loaders.soul_morphing.entity.custom;
+package org.loaders.soul_morphing.entity.custom.renderers;
 
-import net.minecraft.client.model.SkeletonModel;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import net.minecraft.client.renderer.entity.HumanoidMobRenderer;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.monster.AbstractIllager;
-import net.minecraft.world.item.CrossbowItem;
+import org.loaders.soul_morphing.entity.custom.CursedSkeletonEntity;
+import org.loaders.soul_morphing.entity.custom.models.CursedSkeletonModel;
+import org.loaders.soul_morphing.entity.custom.renderers.states.CursedSkeletonRenderState;
 
 import static org.loaders.soul_morphing.Soul_morphing.MODID;
 

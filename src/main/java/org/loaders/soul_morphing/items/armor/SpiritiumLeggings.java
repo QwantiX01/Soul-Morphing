@@ -9,9 +9,9 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.equipment.ArmorType;
 
 import static org.loaders.soul_morphing.Soul_morphing.MODID;
-import static org.loaders.soul_morphing.init.ArmorMaterials.SPIRITIUM_ARMOR_MATERIAL;
-import static org.loaders.soul_morphing.init.SoulEnchantments.SOUL_DEFORMATION;
-import static org.loaders.soul_morphing.init.SoulEnchantments.SOUL_REGENERATION;
+import static org.loaders.soul_morphing.init.data.ArmorMaterials.SPIRITIUM_ARMOR_MATERIAL;
+import static org.loaders.soul_morphing.init.data.SoulEnchantments.SOUL_DEFORMATION;
+import static org.loaders.soul_morphing.init.data.SoulEnchantments.SOUL_REGENERATION;
 import static org.loaders.soul_morphing.init.SoulItems.ITEMS;
 
 public class SpiritiumLeggings extends ArmorItem {

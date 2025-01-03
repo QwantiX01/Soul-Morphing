@@ -3,7 +3,7 @@ package org.loaders.soul_morphing.util;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import org.loaders.soul_morphing.init.SoulAttributes;
+import org.loaders.soul_morphing.init.data.SoulAttributes;
 import org.loaders.soul_morphing.items.armor.SpiritiumBoots;
 import org.loaders.soul_morphing.items.armor.SpiritiumChestplate;
 import org.loaders.soul_morphing.items.armor.SpiritiumHelmet;
@@ -27,7 +27,7 @@ public class Souls {
     public static void increaseMaxSouls(LivingEntity entity, int souls) {
         if (entity != null && entity.getAttributes().hasAttribute(SoulAttributes.MAX_SOULS_COUNT)) {
             double current = entity.getAttribute(SoulAttributes.MAX_SOULS_COUNT).getBaseValue();
-            double newMax = Math.max(20, current + souls); // Ensure minimum max souls is 20.
+            double newMax = Math.max(getMaxSouls(entity), current + souls);
             entity.getAttribute(SoulAttributes.MAX_SOULS_COUNT).setBaseValue(newMax);
         }
     }
@@ -42,7 +42,8 @@ public class Souls {
         if (entity != null && entity.getAttributes().hasAttribute(SoulAttributes.SOULS_COUNT)) {
             int current = getSouls(entity);
             int maxSouls = getMaxSouls(entity);
-            entity.getAttribute(SoulAttributes.SOULS_COUNT).setBaseValue(Math.min(current + souls, maxSouls));
+            int newSouls = Math.min(current + souls, maxSouls);
+            entity.getAttribute(SoulAttributes.SOULS_COUNT).setBaseValue(newSouls);
         }
     }
 

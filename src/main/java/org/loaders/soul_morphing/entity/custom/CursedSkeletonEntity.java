@@ -35,12 +35,16 @@ public class CursedSkeletonEntity extends Monster {
     public static AttributeSupplier.@NotNull Builder createAttributes() {
         return Monster.createMonsterAttributes()
                 .add(Attributes.FOLLOW_RANGE, 35.0)
-                .add(Attributes.MOVEMENT_SPEED, 0.23F)
-                .add(Attributes.ATTACK_DAMAGE, 3.0)
+                .add(Attributes.MOVEMENT_SPEED, 0.16F)
+                .add(Attributes.ATTACK_DAMAGE, 4.3)
                 .add(Attributes.ATTACK_SPEED, 2.0)
                 .add(Attributes.ARMOR, 2.0);
     }
 
+    @Override
+    public void aiStep() {
+        super.aiStep();
+    }
 
     public void setupAnimations() {
         if (attackAnim > 0 && !ATTACK_ANIMATION_STATE.isStarted()) {
@@ -66,10 +70,11 @@ public class CursedSkeletonEntity extends Monster {
     @Override
     protected void registerGoals() {
         super.registerGoals();
+
         this.goalSelector.addGoal(7, new WaterAvoidingRandomStrollGoal(this, 1.0));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this).setAlertOthers(this.getClass()));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
-        this.targetSelector.addGoal(2, new MeleeAttackGoal(this, 1, true));
+        this.targetSelector.addGoal(0, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.targetSelector.addGoal(0, new MeleeAttackGoal(this, 1, true));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, AbstractVillager.class, false));
 
     }

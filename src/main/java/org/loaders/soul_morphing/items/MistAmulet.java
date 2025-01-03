@@ -21,6 +21,8 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 import org.loaders.soul_morphing.init.SoulItems;
+import org.loaders.soul_morphing.init.SoulParticleTypes;
+import org.loaders.soul_morphing.init.SoulParticles;
 import org.loaders.soul_morphing.util.Souls;
 
 import java.util.List;
@@ -75,7 +77,7 @@ public class MistAmulet extends Item {
 
                 // Spawn particles on sphere surface
                 serverLevel.sendParticles(
-                        ParticleTypes.SOUL_FIRE_FLAME,
+                        SoulParticleTypes.MIST_PARTICLE.get(),
                         baseX + x,
                         baseY + y,
                         baseZ + z,
@@ -124,7 +126,7 @@ public class MistAmulet extends Item {
                 entity.lerpMotion(stepVector.x, 0.7, stepVector.z);
             }
         }
-
+        player.stopUsingItem();
         return super.use(level, player, hand);
     }
 

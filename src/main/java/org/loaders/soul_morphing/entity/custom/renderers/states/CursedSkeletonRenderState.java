@@ -1,4 +1,4 @@
-package org.loaders.soul_morphing.entity.custom;
+package org.loaders.soul_morphing.entity.custom.renderers.states;
 
 import net.minecraft.client.renderer.entity.state.HumanoidRenderState;
 import net.minecraft.world.entity.AnimationState;

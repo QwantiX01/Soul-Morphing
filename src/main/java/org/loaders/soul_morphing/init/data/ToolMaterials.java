@@ -1,11 +1,11 @@
-package org.loaders.soul_morphing.init;
+package org.loaders.soul_morphing.init.data;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.ToolMaterial;
 
 import static org.loaders.soul_morphing.Soul_morphing.MODID;
-import static org.loaders.soul_morphing.init.SoulTags.SPIRITIUM_MATERIALS;
+import static org.loaders.soul_morphing.init.data.SoulTags.SPIRITIUM_MATERIALS;
 
 public class ToolMaterials {
     public static final ToolMaterial SPIRITIUM_MATERIAL = new ToolMaterial(

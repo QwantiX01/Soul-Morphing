@@ -1,4 +1,4 @@
-package org.loaders.soul_morphing.init;
+package org.loaders.soul_morphing.init.data;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;

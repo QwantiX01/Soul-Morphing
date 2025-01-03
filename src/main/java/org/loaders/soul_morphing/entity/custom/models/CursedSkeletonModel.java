@@ -1,14 +1,16 @@
-package org.loaders.soul_morphing.entity.custom;
+package org.loaders.soul_morphing.entity.custom.models;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.model.AnimationUtils;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
+import org.jetbrains.annotations.NotNull;
+import org.loaders.soul_morphing.entity.custom.renderers.states.CursedSkeletonRenderState;
+import org.loaders.soul_morphing.entity.custom.animations.CursedSkeletonAnimations;
 
 import static org.loaders.soul_morphing.Soul_morphing.MODID;
 
@@ -16,22 +18,22 @@ public class CursedSkeletonModel<T extends CursedSkeletonRenderState> extends En
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(MODID, "cursed_skeleton"), "main");
     private final ModelPart Body;
     private final ModelPart waist;
-    private final ModelPart rightleg;
-    private final ModelPart leftleg;
+    private final ModelPart rightLeg;
+    private final ModelPart leftLeg;
     private final ModelPart head;
-    private final ModelPart lefthand;
-    private final ModelPart righthand;
+    private final ModelPart leftHand;
+    private final ModelPart rightHand;
     private final ModelPart stick;
 
     public CursedSkeletonModel(ModelPart root) {
         super(root);
         this.Body = root.getChild("Body");
         this.waist = root.getChild("waist");
-        this.rightleg = root.getChild("rightleg");
-        this.leftleg = root.getChild("leftleg");
+        this.rightLeg = root.getChild("rightleg");
+        this.leftLeg = root.getChild("leftleg");
         this.head = root.getChild("head");
-        this.lefthand = root.getChild("lefthand");
-        this.righthand = root.getChild("righthand");
+        this.leftHand = root.getChild("lefthand");
+        this.rightHand = root.getChild("righthand");
         this.stick = root.getChild("stick");
     }
 
@@ -59,7 +61,7 @@ public class CursedSkeletonModel<T extends CursedSkeletonRenderState> extends En
     }
 
     @Override
-    public void setupAnim(T entity) {
+    public void setupAnim(@NotNull T entity) {
         super.setupAnim(entity);
         this.head.yRot = entity.yRot * ((float) Math.PI / 180F);
         this.head.xRot = entity.xRot * ((float) Math.PI / 180F);
@@ -70,17 +72,17 @@ public class CursedSkeletonModel<T extends CursedSkeletonRenderState> extends En
             this.animate(entity.idleAnimationState, CursedSkeletonAnimations.IDLE, entity.ageInTicks, 1.0F);
         }
 
-        this.animateWalk(CursedSkeletonAnimations.WALK, entity.walkAnimationPos, entity.walkAnimationSpeed, 1.0F, 5.0F);
+        this.animateWalk(CursedSkeletonAnimations.WALK, entity.walkAnimationPos, entity.walkAnimationSpeed * 5F, 1.0F, 5.0F);
     }
 
     public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
         Body.render(poseStack, vertexConsumer, packedLight, packedOverlay);
         waist.render(poseStack, vertexConsumer, packedLight, packedOverlay);
-        rightleg.render(poseStack, vertexConsumer, packedLight, packedOverlay);
-        leftleg.render(poseStack, vertexConsumer, packedLight, packedOverlay);
+        rightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay);
+        leftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay);
         head.render(poseStack, vertexConsumer, packedLight, packedOverlay);
-        lefthand.render(poseStack, vertexConsumer, packedLight, packedOverlay);
-        righthand.render(poseStack, vertexConsumer, packedLight, packedOverlay);
+        leftHand.render(poseStack, vertexConsumer, packedLight, packedOverlay);
+        rightHand.render(poseStack, vertexConsumer, packedLight, packedOverlay);
         stick.render(poseStack, vertexConsumer, packedLight, packedOverlay);
     }
 }

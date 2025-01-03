@@ -1,4 +1,4 @@
-package org.loaders.soul_morphing.init;
+package org.loaders.soul_morphing.init.data;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.entity.EntityType;

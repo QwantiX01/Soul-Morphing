@@ -7,7 +7,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import org.loaders.soul_morphing.blocks.AshOreBlock;
 import org.loaders.soul_morphing.blocks.SpiritiumOreBlock;
 import org.loaders.soul_morphing.blocks.animated.EternityVaultBlock;
 import org.loaders.soul_morphing.blocks.animated.VoidFurnaceBlock;
@@ -26,7 +25,6 @@ public class SoulBlocks {
 
     public static final DeferredHolder<Block, Block> VOID_FURNACE = BLOCKS.register("void_furnace", VoidFurnaceBlock::new);
     public static final DeferredHolder<Block, Block> ETERNITY_VAULT = BLOCKS.register("eternity_vault", EternityVaultBlock::new);
-
 
     // ================================================= ORES ==========================================================
 

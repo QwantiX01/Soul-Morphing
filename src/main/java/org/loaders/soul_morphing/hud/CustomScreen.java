@@ -10,7 +10,7 @@ import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RenderGuiEvent;
-import org.loaders.soul_morphing.init.SoulAttributes;
+import org.loaders.soul_morphing.init.data.SoulAttributes;
 import org.loaders.soul_morphing.util.Souls;
 
 import static org.loaders.soul_morphing.Soul_morphing.MODID;

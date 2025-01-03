@@ -38,12 +38,16 @@ public class GameClientListener {
             player.getPersistentData().putInt("spiritium_armor_bonus", totalBonus);
         }
 
+        if (Souls.getSouls(player) > Souls.getMaxSouls(player)) {
+            Souls.setSouls(player, Souls.getMaxSouls(player));
+        }
+
     }
 
     private static long lastTick = 0;
 
     @SubscribeEvent
-    public static void onRenderTick(LevelTickEvent.Post event) {
+    public static void onLevelTick(LevelTickEvent.Post event) {
         Player player = Minecraft.getInstance().player;
         if (player == null) {
             return;
