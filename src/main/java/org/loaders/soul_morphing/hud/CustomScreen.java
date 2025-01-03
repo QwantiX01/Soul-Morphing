@@ -32,6 +32,7 @@ public class CustomScreen {
             return;
 
         int frame = (int) Math.ceil((double) ((Souls.getSouls(player) * 100) / Souls.getMaxSouls(player)) / 10);
+        frame = Math.min(frame, 10);
 
         ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(MODID, String.format("gui/soul_bar/soul_bar_%s.png", frame));
         event.getGuiGraphics().blit(resourceLocation -> RenderType.guiTextured(TEXTURE), TEXTURE, 10, height - 96, 0, 0, 12, 86, 12, 86);

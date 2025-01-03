@@ -14,6 +14,7 @@ import net.minecraft.world.level.Level;
 import static org.loaders.soul_morphing.Soul_morphing.MODID;
 import static org.loaders.soul_morphing.init.ArmorMaterials.SPIRITIUM_ARMOR_MATERIAL;
 import static org.loaders.soul_morphing.init.SoulEnchantments.SOUL_DEFORMATION;
+import static org.loaders.soul_morphing.init.SoulEnchantments.SOUL_REGENERATION;
 import static org.loaders.soul_morphing.init.SoulItems.ITEMS;
 
 public class SpiritiumChestplate extends ArmorItem {
@@ -26,5 +27,10 @@ public class SpiritiumChestplate extends ArmorItem {
     public static int getSoulsBonus(ItemStack stack) {
         int enchantmentLevel = stack.getEnchantmentLevel(Minecraft.getInstance().level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(SOUL_DEFORMATION));
         return 8 + enchantmentLevel;
+    }
+
+    public static int getSoulsRegeneration(ItemStack stack) {
+        int enchantmentLevel = stack.getEnchantmentLevel(Minecraft.getInstance().level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(SOUL_REGENERATION));
+        return enchantmentLevel;
     }
 }

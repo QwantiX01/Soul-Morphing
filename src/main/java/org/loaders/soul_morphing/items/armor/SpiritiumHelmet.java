@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.vehicle.Minecart;
 import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
@@ -15,6 +16,7 @@ import net.minecraft.world.item.equipment.ArmorType;
 import static org.loaders.soul_morphing.Soul_morphing.MODID;
 import static org.loaders.soul_morphing.init.ArmorMaterials.SPIRITIUM_ARMOR_MATERIAL;
 import static org.loaders.soul_morphing.init.SoulEnchantments.SOUL_DEFORMATION;
+import static org.loaders.soul_morphing.init.SoulEnchantments.SOUL_REGENERATION;
 import static org.loaders.soul_morphing.init.SoulItems.ITEMS;
 
 public class SpiritiumHelmet extends ArmorItem {
@@ -27,5 +29,10 @@ public class SpiritiumHelmet extends ArmorItem {
     public static int getSoulsBonus(ItemStack stack) {
         int enchantmentLevel = stack.getEnchantmentLevel(Minecraft.getInstance().level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(SOUL_DEFORMATION));
         return 6 + enchantmentLevel;
+    }
+
+    public static int getSoulsRegeneration(ItemStack stack) {
+        int enchantmentLevel = stack.getEnchantmentLevel(Minecraft.getInstance().level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(SOUL_REGENERATION));
+        return enchantmentLevel;
     }
 }

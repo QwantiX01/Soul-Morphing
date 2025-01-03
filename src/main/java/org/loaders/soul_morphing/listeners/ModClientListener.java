@@ -8,6 +8,8 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import org.loaders.soul_morphing.blocks.animated.entity.VoidFurnaceBlockEntity;
 import org.loaders.soul_morphing.blocks.animated.renderer.VoidFurnaceBlockRenderer;
+import org.loaders.soul_morphing.entity.custom.CursedSkeletonEntity;
+import org.loaders.soul_morphing.entity.custom.CursedSkeletonModel;
 import org.loaders.soul_morphing.init.SoulBlocksEntities;
 import org.loaders.soul_morphing.blocks.animated.entity.EternityVaultBlockEntity;
 import org.loaders.soul_morphing.blocks.animated.renderer.EternityVaultBlockRenderer;
@@ -21,5 +23,10 @@ public class ModClientListener {
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer((BlockEntityType<EternityVaultBlockEntity>) SoulBlocksEntities.ETERNITY_VAULT_ENTITY.get(), context -> new EternityVaultBlockRenderer());
         event.registerBlockEntityRenderer((BlockEntityType<VoidFurnaceBlockEntity>) SoulBlocksEntities.VOID_FURNACE_ENTITY.get(), context -> new VoidFurnaceBlockRenderer());
+    }
+
+    @SubscribeEvent
+    public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
+        event.registerLayerDefinition(CursedSkeletonModel.LAYER_LOCATION, CursedSkeletonModel::createBodyLayer);
     }
 }

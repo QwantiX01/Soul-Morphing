@@ -1,19 +1,15 @@
 package org.loaders.soul_morphing.init;
 
-import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.equipment.ArmorType;
-import net.minecraft.world.item.equipment.EquipmentModel;
-import net.minecraft.world.item.equipment.Equippable;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.loaders.soul_morphing.blocks.animated.display.EternityVaultDisplayItem;
 import org.loaders.soul_morphing.blocks.animated.display.VoidFurnaceDisplayItem;
 import org.loaders.soul_morphing.items.MistAmulet;
+import org.loaders.soul_morphing.items.ScorchingWave;
 import org.loaders.soul_morphing.items.armor.SpiritiumBoots;
 import org.loaders.soul_morphing.items.armor.SpiritiumChestplate;
 import org.loaders.soul_morphing.items.armor.SpiritiumHelmet;
@@ -22,7 +18,6 @@ import org.loaders.soul_morphing.items.tools.SoulMorphist;
 import org.loaders.soul_morphing.items.tools.SpiritiumMultitool;
 
 import static org.loaders.soul_morphing.Soul_morphing.MODID;
-import static org.loaders.soul_morphing.init.ArmorMaterials.SPIRITIUM_ARMOR_MATERIAL;
 import static org.loaders.soul_morphing.init.ToolMaterials.SPIRITIUM_MATERIAL;
 
 
@@ -66,6 +61,8 @@ public class SoulItems {
 
     public static final DeferredHolder<Item, Item> MIST_AMULET
             = ITEMS.registerItem("mist_amulet", properties -> new MistAmulet());
+    public static final DeferredHolder<Item, Item> SCORCHING_WAVE
+            = ITEMS.registerItem("scorching_wave", ScorchingWave::new);
     public static final DeferredHolder<Item, SwordItem> SOUL_MORPHIST //Sword
             = ITEMS.registerItem("soul_morphist", props -> new SoulMorphist());
     public static final DeferredHolder<Item, DiggerItem> SPIRITIUM_MULTITOOL

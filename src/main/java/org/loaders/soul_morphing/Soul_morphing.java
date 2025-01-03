@@ -1,6 +1,7 @@
 package org.loaders.soul_morphing;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
@@ -14,6 +15,8 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import org.loaders.soul_morphing.entity.custom.CursedSkeletonModel;
+import org.loaders.soul_morphing.entity.custom.CursedSkeletonRenderer;
 import org.loaders.soul_morphing.init.*;
 import org.loaders.soul_morphing.util.Souls;
 import org.slf4j.Logger;
@@ -30,6 +33,7 @@ public class Soul_morphing {
         SoulItems.ITEMS.register(modEventBus);
         SoulMenus.REGISTRY.register(modEventBus);
         SoulCreativeTab.CREATIVE_MODE_TABS.register(modEventBus);
+        SoulEntities.ENTITY_TYPES.register(modEventBus);
 
         NeoForge.EVENT_BUS.register(this);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
@@ -46,6 +50,8 @@ public class Soul_morphing {
             ItemProperties.register(SoulItems.MIST_AMULET.get(), ResourceLocation.withDefaultNamespace("capable"),
                     (itemStack, clientLevel, livingEntity, i) ->
                             livingEntity != null && (livingEntity.getItemInHand(InteractionHand.MAIN_HAND) == itemStack || livingEntity.getItemInHand(InteractionHand.OFF_HAND) == itemStack) && Souls.getSouls(livingEntity) >= 8 ? 1 : 0);
+
+            EntityRenderers.register(SoulEntities.CURSED_SKELETON_ENTITY.get(), context -> new CursedSkeletonRenderer(context, new CursedSkeletonModel<>(context.bakeLayer(CursedSkeletonModel.LAYER_LOCATION)), 0.5f));
         }
     }
 

@@ -75,5 +75,24 @@ public class Souls {
 
         return totalBonus;
     }
+
+    public static int getTotalSoulsRegeneration(Player player){
+        ItemStack headStack = player.getInventory().armor.get(3);
+        ItemStack chestplateStack = player.getInventory().armor.get(2);
+        ItemStack leggingsStack = player.getInventory().armor.get(1);
+        ItemStack bootsStack = player.getInventory().armor.get(0);
+
+        int totalBonus = 0;
+
+        if (headStack.getItem() instanceof SpiritiumHelmet) totalBonus += SpiritiumHelmet.getSoulsRegeneration(headStack);
+
+        if (chestplateStack.getItem() instanceof SpiritiumChestplate) totalBonus += SpiritiumChestplate.getSoulsRegeneration(chestplateStack);
+
+        if (leggingsStack.getItem() instanceof SpiritiumLeggings) totalBonus += SpiritiumLeggings.getSoulsRegeneration(leggingsStack);
+
+        if (bootsStack.getItem() instanceof SpiritiumBoots) totalBonus += SpiritiumBoots.getSoulsRegeneration(bootsStack);
+
+        return totalBonus;
+    }
 }
 
