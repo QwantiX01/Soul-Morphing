@@ -10,6 +10,7 @@ import org.loaders.soul_morphing.blocks.animated.display.EternityVaultDisplayIte
 import org.loaders.soul_morphing.blocks.animated.display.VoidFurnaceDisplayItem;
 import org.loaders.soul_morphing.items.CursedBone;
 import org.loaders.soul_morphing.items.MistAmulet;
+import org.loaders.soul_morphing.items.RegenerationAmulet;
 import org.loaders.soul_morphing.items.ScorchingWave;
 import org.loaders.soul_morphing.items.armor.SpiritiumBoots;
 import org.loaders.soul_morphing.items.armor.SpiritiumChestplate;
@@ -50,6 +51,9 @@ public class SoulItems {
     // ============================================== MATERIALS ========================================================
 
     public static final DeferredHolder<Item, Item> DUSK_SOUL = registerItem("dusk_soul");
+    public static final DeferredHolder<Item, Item> SINISTER_CORE = registerItem("sinister_core");
+    public static final DeferredHolder<Item, Item> ENDER_SHELL = registerItem("ender_shell");
+    public static final DeferredItem<Item> CURSED_BONE = ITEMS.registerItem("cursed_bone", CursedBone::new);
 
 
     // ======================================== FUNCTIONAL BLOCK ITEMS =================================================
@@ -64,6 +68,9 @@ public class SoulItems {
             = ITEMS.registerItem("mist_amulet", properties -> new MistAmulet());
     public static final DeferredHolder<Item, Item> SCORCHING_WAVE
             = ITEMS.registerItem("scorching_wave", ScorchingWave::new);
+    public static final DeferredHolder<Item, Item> CAGED_SOUL
+            = ITEMS.registerItem("caged_soul", RegenerationAmulet::new);
+
     public static final DeferredHolder<Item, SwordItem> SOUL_MORPHIST //Sword
             = ITEMS.registerItem("soul_morphist", props -> new SoulMorphist());
     public static final DeferredHolder<Item, DiggerItem> SPIRITIUM_MULTITOOL
@@ -77,11 +84,11 @@ public class SoulItems {
     public static final DeferredHolder<Item, HoeItem> SPIRITIUM_HOE =
             ITEMS.registerItem("spiritium_hoe", props -> new HoeItem(SPIRITIUM_MATERIAL, 0, -2.8f, new Item.Properties().setId(ResourceKey.create(ITEMS.getRegistryKey(), ResourceLocation.fromNamespaceAndPath(MODID, "spiritium_hoe")))));
 
+    // ================================================ ARMOR ==========================================================
 
     public static final DeferredItem<ArmorItem> SPIRITIUM_HELMET = ITEMS.registerItem("spiritium_helmet", SpiritiumHelmet::new);
     public static final DeferredItem<ArmorItem> SPIRITIUM_CHESTPLATE = ITEMS.registerItem("spiritium_chestplate", SpiritiumChestplate::new);
     public static final DeferredItem<ArmorItem> SPIRITIUM_LEGGINGS = ITEMS.registerItem("spiritium_leggings", SpiritiumLeggings::new);
     public static final DeferredItem<ArmorItem> SPIRITIUM_BOOTS = ITEMS.registerItem("spiritium_boots", SpiritiumBoots::new);
 
-    public static final DeferredItem<Item> CURSED_BONE = ITEMS.registerItem("cursed_bone", CursedBone::new);
 }

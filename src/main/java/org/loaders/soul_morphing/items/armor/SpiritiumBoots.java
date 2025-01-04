@@ -4,15 +4,20 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.equipment.ArmorType;
+import net.minecraft.world.level.Level;
+import org.loaders.soul_morphing.util.Souls;
 
 import static org.loaders.soul_morphing.Soul_morphing.MODID;
 import static org.loaders.soul_morphing.init.data.ArmorMaterials.SPIRITIUM_ARMOR_MATERIAL;
 import static org.loaders.soul_morphing.init.data.SoulEnchantments.SOUL_DEFORMATION;
 import static org.loaders.soul_morphing.init.data.SoulEnchantments.SOUL_REGENERATION;
 import static org.loaders.soul_morphing.init.SoulItems.ITEMS;
+import static org.loaders.soul_morphing.util.Souls.getTotalBonus;
 
 public class SpiritiumBoots extends ArmorItem {
     public SpiritiumBoots(Properties properties) {
@@ -21,7 +26,7 @@ public class SpiritiumBoots extends ArmorItem {
                         ResourceLocation.fromNamespaceAndPath(MODID, "spiritium_boots"))));
     }
 
-    public static int getSoulsBonus(ItemStack stack){
+    public static int getSoulsBonus(ItemStack stack) {
         int enchantmentLevel = stack.getEnchantmentLevel(Minecraft.getInstance().level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(SOUL_DEFORMATION));
         return 4 + enchantmentLevel;
     }

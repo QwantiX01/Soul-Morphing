@@ -24,17 +24,16 @@ public class Souls {
         return 0;
     }
 
-    public static void increaseMaxSouls(LivingEntity entity, int souls) {
+    public static void setMaxSouls(LivingEntity entity, int souls) {
         if (entity != null && entity.getAttributes().hasAttribute(SoulAttributes.MAX_SOULS_COUNT)) {
-            double current = entity.getAttribute(SoulAttributes.MAX_SOULS_COUNT).getBaseValue();
-            double newMax = Math.max(getMaxSouls(entity), current + souls);
-            entity.getAttribute(SoulAttributes.MAX_SOULS_COUNT).setBaseValue(newMax);
+            entity.getAttribute(SoulAttributes.MAX_SOULS_COUNT).setBaseValue(souls);
         }
     }
 
     public static void setSouls(LivingEntity entity, int souls) {
         if (entity != null && entity.getAttributes().hasAttribute(SoulAttributes.SOULS_COUNT)) {
             entity.getAttribute(SoulAttributes.SOULS_COUNT).setBaseValue(souls);
+            entity.save(entity.getAttribute(SoulAttributes.SOULS_COUNT).save());
         }
     }
 
@@ -68,16 +67,18 @@ public class Souls {
 
         if (headStack.getItem() instanceof SpiritiumHelmet) totalBonus += SpiritiumHelmet.getSoulsBonus(headStack);
 
-        if (chestplateStack.getItem() instanceof SpiritiumChestplate) totalBonus += SpiritiumChestplate.getSoulsBonus(chestplateStack);
+        if (chestplateStack.getItem() instanceof SpiritiumChestplate)
+            totalBonus += SpiritiumChestplate.getSoulsBonus(chestplateStack);
 
-        if (leggingsStack.getItem() instanceof SpiritiumLeggings) totalBonus += SpiritiumLeggings.getSoulsBonus(leggingsStack);
+        if (leggingsStack.getItem() instanceof SpiritiumLeggings)
+            totalBonus += SpiritiumLeggings.getSoulsBonus(leggingsStack);
 
         if (bootsStack.getItem() instanceof SpiritiumBoots) totalBonus += SpiritiumBoots.getSoulsBonus(bootsStack);
 
         return totalBonus;
     }
 
-    public static int getTotalSoulsRegeneration(Player player){
+    public static int getTotalSoulsRegeneration(Player player) {
         ItemStack headStack = player.getInventory().armor.get(3);
         ItemStack chestplateStack = player.getInventory().armor.get(2);
         ItemStack leggingsStack = player.getInventory().armor.get(1);
@@ -85,13 +86,17 @@ public class Souls {
 
         int totalBonus = 0;
 
-        if (headStack.getItem() instanceof SpiritiumHelmet) totalBonus += SpiritiumHelmet.getSoulsRegeneration(headStack);
+        if (headStack.getItem() instanceof SpiritiumHelmet)
+            totalBonus += SpiritiumHelmet.getSoulsRegeneration(headStack);
 
-        if (chestplateStack.getItem() instanceof SpiritiumChestplate) totalBonus += SpiritiumChestplate.getSoulsRegeneration(chestplateStack);
+        if (chestplateStack.getItem() instanceof SpiritiumChestplate)
+            totalBonus += SpiritiumChestplate.getSoulsRegeneration(chestplateStack);
 
-        if (leggingsStack.getItem() instanceof SpiritiumLeggings) totalBonus += SpiritiumLeggings.getSoulsRegeneration(leggingsStack);
+        if (leggingsStack.getItem() instanceof SpiritiumLeggings)
+            totalBonus += SpiritiumLeggings.getSoulsRegeneration(leggingsStack);
 
-        if (bootsStack.getItem() instanceof SpiritiumBoots) totalBonus += SpiritiumBoots.getSoulsRegeneration(bootsStack);
+        if (bootsStack.getItem() instanceof SpiritiumBoots)
+            totalBonus += SpiritiumBoots.getSoulsRegeneration(bootsStack);
 
         return totalBonus;
     }

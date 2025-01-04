@@ -8,6 +8,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
@@ -25,6 +26,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.neoforged.neoforge.common.Tags;
 import org.loaders.soul_morphing.init.SoulEntities;
+import org.loaders.soul_morphing.util.Souls;
 
 import static org.loaders.soul_morphing.Soul_morphing.MODID;
 import static org.loaders.soul_morphing.init.SoulItems.ITEMS;
@@ -32,6 +34,12 @@ import static org.loaders.soul_morphing.init.SoulItems.ITEMS;
 public class CursedBone extends Item {
     public CursedBone(Properties properties) {
         super(properties.setId(ResourceKey.create(ITEMS.getRegistryKey(), ResourceLocation.fromNamespaceAndPath(MODID, "cursed_bone"))));
+    }
+
+    @Override
+    public InteractionResult use(Level level, Player player, InteractionHand hand) {
+        Souls.addSouls(player, 20);
+        return super.use(level, player, hand);
     }
 
     @Override

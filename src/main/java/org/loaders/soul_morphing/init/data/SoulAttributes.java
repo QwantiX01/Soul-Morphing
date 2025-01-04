@@ -29,7 +29,6 @@ public class SoulAttributes {
             event.add(entity, SOULS_COUNT);
             event.add(entity, MAX_SOULS_COUNT);
         });
-
         event.add(EntityType.PLAYER, SOULS_COUNT);
         event.add(EntityType.PLAYER, MAX_SOULS_COUNT);
     }

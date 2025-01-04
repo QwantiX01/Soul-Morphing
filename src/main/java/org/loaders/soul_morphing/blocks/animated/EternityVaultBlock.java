@@ -87,7 +87,7 @@ public class EternityVaultBlock extends BaseEntityBlock implements EntityBlock {
     @Override
     public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
         if (entity instanceof Player player) {
-            if (level.isClientSide && level.getBlockEntity(pos) instanceof EternityVaultBlockEntity blockEntity) {
+            if (level.getBlockEntity(pos) instanceof EternityVaultBlockEntity blockEntity) {
                 switch (blockEntity.getMode()) {
                     case INCOME -> {
                         if (Souls.getSouls(player) - 1 >= 0 && blockEntity.getSouls() + 1 <= 500) {
