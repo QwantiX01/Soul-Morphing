@@ -15,6 +15,8 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import org.loaders.soul_morphing.entity.custom.models.CursedSkeletonModel;
 import org.loaders.soul_morphing.entity.custom.renderers.CursedSkeletonRenderer;
 import org.loaders.soul_morphing.init.*;
@@ -44,6 +46,7 @@ public class Soul_morphing {
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
     }
+
 
     @EventBusSubscriber(modid = MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
