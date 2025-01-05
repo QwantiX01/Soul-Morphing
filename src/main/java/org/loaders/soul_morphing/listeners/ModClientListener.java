@@ -1,6 +1,7 @@
 package org.loaders.soul_morphing.listeners;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -16,6 +17,7 @@ import org.loaders.soul_morphing.entity.custom.models.CursedSkeletonModel;
 import org.loaders.soul_morphing.init.SoulBlocksEntities;
 import org.loaders.soul_morphing.blocks.animated.entity.EternityVaultBlockEntity;
 import org.loaders.soul_morphing.blocks.animated.renderer.EternityVaultBlockRenderer;
+import org.loaders.soul_morphing.init.SoulEntities;
 import org.loaders.soul_morphing.util.Souls;
 
 import java.util.UUID;
@@ -28,6 +30,7 @@ public class ModClientListener {
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(SoulEntities.SINNER_SHPERE.get(), ThrownItemRenderer::new);
         event.registerBlockEntityRenderer((BlockEntityType<EternityVaultBlockEntity>) SoulBlocksEntities.ETERNITY_VAULT_ENTITY.get(), context -> new EternityVaultBlockRenderer());
         event.registerBlockEntityRenderer((BlockEntityType<VoidFurnaceBlockEntity>) SoulBlocksEntities.VOID_FURNACE_ENTITY.get(), context -> new VoidFurnaceBlockRenderer());
     }

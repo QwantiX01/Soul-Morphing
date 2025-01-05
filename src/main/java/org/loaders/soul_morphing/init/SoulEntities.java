@@ -4,6 +4,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -12,6 +13,7 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.loaders.soul_morphing.entity.custom.CursedSkeletonEntity;
+import org.loaders.soul_morphing.entity.custom.SinnerSphereEntity;
 
 import java.util.function.Supplier;
 
@@ -25,6 +27,15 @@ public class SoulEntities {
                     .of(CursedSkeletonEntity::new, MobCategory.MONSTER)
                     .sized(0.6F, 2.25F)
                     .build(ResourceKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MODID, "cursed_skeleton"))));
+
+
+    public static final DeferredHolder<EntityType<?>, EntityType<SinnerSphereEntity>> SINNER_SHPERE = register("sinner_shpere",
+            EntityType.Builder.<SinnerSphereEntity>of(SinnerSphereEntity::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+
+    private static <T extends Entity> DeferredHolder<EntityType<?>, EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
+        return ENTITY_TYPES.register(registryname, () -> entityTypeBuilder.build(ResourceKey.create(ENTITY_TYPES.getRegistryKey(), ResourceLocation.fromNamespaceAndPath(MODID, registryname))));
+    }
+
 
     @SubscribeEvent
     public static void registerEntity(EntityAttributeCreationEvent event) {

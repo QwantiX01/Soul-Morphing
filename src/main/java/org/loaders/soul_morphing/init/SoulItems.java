@@ -8,10 +8,7 @@ import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.loaders.soul_morphing.blocks.animated.display.EternityVaultDisplayItem;
 import org.loaders.soul_morphing.blocks.animated.display.VoidFurnaceDisplayItem;
-import org.loaders.soul_morphing.items.CursedBone;
-import org.loaders.soul_morphing.items.MistAmulet;
-import org.loaders.soul_morphing.items.RegenerationAmulet;
-import org.loaders.soul_morphing.items.ScorchingWave;
+import org.loaders.soul_morphing.items.*;
 import org.loaders.soul_morphing.items.armor.SpiritiumBoots;
 import org.loaders.soul_morphing.items.armor.SpiritiumChestplate;
 import org.loaders.soul_morphing.items.armor.SpiritiumHelmet;
@@ -70,6 +67,8 @@ public class SoulItems {
             = ITEMS.registerItem("scorching_wave", ScorchingWave::new);
     public static final DeferredHolder<Item, Item> CAGED_SOUL
             = ITEMS.registerItem("caged_soul", RegenerationAmulet::new);
+    public static final DeferredHolder<Item, Item> SINNERS_STAFF
+            = ITEMS.registerItem("sinners_staff", SinnerStaff::new);
 
     public static final DeferredHolder<Item, SwordItem> SOUL_MORPHIST //Sword
             = ITEMS.registerItem("soul_morphist", props -> new SoulMorphist());
