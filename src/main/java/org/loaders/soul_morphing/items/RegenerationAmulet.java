@@ -1,5 +1,6 @@
 package org.loaders.soul_morphing.items;
 
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
@@ -23,12 +24,13 @@ public class RegenerationAmulet extends Item {
 
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
-        if (entity instanceof Player player) {
+        if (entity instanceof Player player && level.isClientSide) {
             long tick = level.getGameTime();
             int regenerationSpeedTicks = Souls.getTotalSoulsRegeneration(player);
             if (tick % (60 - (regenerationSpeedTicks * 10L)) == 0 && tick != lastTick) {
-                Souls.addSouls(player, 1);
-                PacketDistributor.sendToServer(new SoulsData(Souls.getSouls(player), Souls.getMaxSouls(player)));
+                player.displayClientMessage(Component.literal("Server"), false);
+//                Souls.addSouls(player, 1);
+                PacketDistributor.sendToServer(new SoulsData(Souls.getSouls(player) + 1, Souls.getMaxSouls(player)));
                 lastTick = tick;
             }
         }

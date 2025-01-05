@@ -105,19 +105,14 @@ public class MistAmulet extends Item {
         boolean enoughSouls = Souls.trySubtractSouls(player, 8);
         if (!enoughSouls)
             return InteractionResult.PASS;
-
         player.playSound(new SoundEvent(ResourceLocation.withDefaultNamespace("block.beacon.activate"), Optional.of(10f)));
         player.startUsingItem(hand);
-
-        // Spawn particles and continue expanding for multiple ticks
         spawnExpandingFireworkSphere(level, player.blockPosition(), player);
-
         int area = 10; //Blocks
         List<Entity> entities = level.getEntities(player, new AABB(
                 player.getX() - area, player.getY() - area, player.getZ() - area,
                 player.getX() + area, player.getY() + area, player.getZ() + area
         ));
-
         for (Entity entity : entities) {
             if (entity instanceof Projectile || entity instanceof Enemy) {
                 Vec3 directionalVector = new Vec3(player.getX() - entity.getX(), player.getY() - entity.getY(), player.getZ() - entity.getZ());

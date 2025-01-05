@@ -9,6 +9,7 @@ import org.loaders.soul_morphing.items.armor.SpiritiumChestplate;
 import org.loaders.soul_morphing.items.armor.SpiritiumHelmet;
 import org.loaders.soul_morphing.items.armor.SpiritiumLeggings;
 
+// Send packet to server if called on client, otherwise directly add souls on server.
 public class Souls {
     public static int getSouls(LivingEntity entity) {
         if (entity != null && entity.getAttributes().hasAttribute(SoulAttributes.SOULS_COUNT)) {

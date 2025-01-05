@@ -23,10 +23,12 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.phys.BlockHitResult;
+import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.loaders.soul_morphing.blocks.animated.entity.EternityVaultBlockEntity;
 import org.loaders.soul_morphing.init.SoulBlocksEntities;
+import org.loaders.soul_morphing.network.SoulsData;
 import org.loaders.soul_morphing.util.Souls;
 
 import java.util.Collections;
@@ -87,17 +89,19 @@ public class EternityVaultBlock extends BaseEntityBlock implements EntityBlock {
     @Override
     public void stepOn(Level level, BlockPos pos, BlockState state, Entity entity) {
         if (entity instanceof Player player) {
-            if (level.getBlockEntity(pos) instanceof EternityVaultBlockEntity blockEntity) {
+            if (level.isClientSide && level.getBlockEntity(pos) instanceof EternityVaultBlockEntity blockEntity) {
                 switch (blockEntity.getMode()) {
                     case INCOME -> {
                         if (Souls.getSouls(player) - 1 >= 0 && blockEntity.getSouls() + 1 <= 500) {
-                            Souls.setSouls(player, Souls.getSouls(player) - 1);
+                            // Send packet to server if called on client, otherwise directly add souls on server.
+                            PacketDistributor.sendToServer(new SoulsData(Souls.getSouls(player) - 1, Souls.getMaxSouls(player)));
                             blockEntity.setSouls(blockEntity.getSouls() + 1);
                         }
                     }
                     case OUTCOME -> {
                         if (Souls.getSouls(player) + 1 <= Souls.getMaxSouls(player) && blockEntity.getSouls() - 1 >= 0) {
-                            Souls.setSouls(player, Souls.getSouls(player) + 1);
+                            // Send packet to server if called on client, otherwise directly add souls on server.
+                            PacketDistributor.sendToServer(new SoulsData(Souls.getSouls(player) + 1, Souls.getMaxSouls(player)));
                             blockEntity.setSouls(blockEntity.getSouls() - 1);
                         }
                     }
