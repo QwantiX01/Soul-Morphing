@@ -90,4 +90,7 @@ public class SoulItems {
     public static final DeferredItem<ArmorItem> SPIRITIUM_LEGGINGS = ITEMS.registerItem("spiritium_leggings", SpiritiumLeggings::new);
     public static final DeferredItem<ArmorItem> SPIRITIUM_BOOTS = ITEMS.registerItem("spiritium_boots", SpiritiumBoots::new);
 
+
+    //MISC
+    public static final DeferredHolder<Item, Item> SINNER_BALL = registerItem("sinner_ball");
 }

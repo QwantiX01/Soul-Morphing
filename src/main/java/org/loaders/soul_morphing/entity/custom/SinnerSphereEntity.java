@@ -1,8 +1,7 @@
 package org.loaders.soul_morphing.entity.custom;
 
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundSource;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
@@ -11,7 +10,6 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.ItemSupplier;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
@@ -23,7 +21,8 @@ import javax.annotation.Nullable;
 
 @OnlyIn(value = Dist.CLIENT, _interface = ItemSupplier.class)
 public class SinnerSphereEntity extends AbstractArrow implements ItemSupplier {
-    public static final ItemStack PROJECTILE_ITEM = new ItemStack(Items.SNOWBALL);
+
+    public static final ItemStack PROJECTILE_ITEM = new ItemStack(Blocks.AIR);
     private int knockback = 0;
 
     public SinnerSphereEntity(EntityType<? extends SinnerSphereEntity> type, Level world) {
@@ -79,7 +78,7 @@ public class SinnerSphereEntity extends AbstractArrow implements ItemSupplier {
 
     @Override
     protected ItemStack getDefaultPickupItem() {
-        return new ItemStack(Blocks.CHERRY_SAPLING);
+        return new ItemStack(Blocks.AIR);
     }
 
     @Override
@@ -106,6 +105,20 @@ public class SinnerSphereEntity extends AbstractArrow implements ItemSupplier {
     @Override
     public void tick() {
         super.tick();
+        Level level = this.level();
+        if (level instanceof ServerLevel serverLevel) {
+            serverLevel.sendParticles(
+                    ParticleTypes.SOUL_FIRE_FLAME,
+                    this.getX(),
+                    this.getY(),
+                    this.getZ(),
+                    10,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.02
+            );
+        }
         if (this.isInGround())
             this.discard();
     }

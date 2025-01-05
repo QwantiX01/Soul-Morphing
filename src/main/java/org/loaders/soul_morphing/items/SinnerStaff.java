@@ -18,6 +18,7 @@ import org.loaders.soul_morphing.init.SoulEntities;
 
 import static org.loaders.soul_morphing.Soul_morphing.MODID;
 import static org.loaders.soul_morphing.init.SoulItems.ITEMS;
+import static org.loaders.soul_morphing.init.SoulItems.SINNER_BALL;
 
 public class SinnerStaff extends Item {
     private static int mode = 0;
@@ -60,10 +61,10 @@ public class SinnerStaff extends Item {
                                 entityToSpawn.setSilent(true);
                                 return entityToSpawn;
                             }
-                        }.getArrow(projectileLevel, 5, 1, (byte) 0);
+                        }.getArrow(projectileLevel, 5, 1, (byte) 1);
 
-                        _entityToSpawn.setPos(_shootFrom.getX(), _shootFrom.getEyeY() - 1, _shootFrom.getZ());
-                        _entityToSpawn.shoot(_shootFrom.getLookAngle().x, _shootFrom.getLookAngle().y, _shootFrom.getLookAngle().z, 1, 0);
+                        _entityToSpawn.setPos(_shootFrom.getX(), _shootFrom.getEyeY(), _shootFrom.getZ());
+                        _entityToSpawn.shoot(_shootFrom.getLookAngle().x, _shootFrom.getLookAngle().y, _shootFrom.getLookAngle().z, 3, 0);
                         projectileLevel.addFreshEntity(_entityToSpawn);
                     }
 
