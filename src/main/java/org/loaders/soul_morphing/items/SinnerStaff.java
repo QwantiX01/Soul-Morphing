@@ -5,20 +5,14 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import org.loaders.soul_morphing.entity.custom.SinnerSphereEntity;
-import org.loaders.soul_morphing.init.SoulEntities;
 
 import static org.loaders.soul_morphing.Soul_morphing.MODID;
 import static org.loaders.soul_morphing.init.SoulItems.ITEMS;
-import static org.loaders.soul_morphing.init.SoulItems.SINNER_BALL;
 
 public class SinnerStaff extends Item {
     private static int mode = 0;
@@ -42,30 +36,35 @@ public class SinnerStaff extends Item {
                     Entity _shootFrom = player;
                     Level projectileLevel = _shootFrom.level();
                     if (!projectileLevel.isClientSide()) {
-                        Projectile _entityToSpawn = new Object() {
-                            public Projectile getArrow(Level level, float damage, int knockback, byte piercing) {
-                                AbstractArrow entityToSpawn = new SinnerSphereEntity(SoulEntities.SINNER_SHPERE.get(), level) {
-                                    @Override
-                                    public byte getPierceLevel() {
-                                        return piercing;
-                                    }
+//                        SinnerSphereEntity entityarrow = new SinnerSphereEntity(SoulEntities.SINNER_SHPERE.get(), player, projectileLevel, null);
+//                        entityarrow.setPos(_shootFrom.getX(), _shootFrom.getEyeY(), _shootFrom.getZ());
+                        SinnerSphereEntity.shoot(projectileLevel, player, projectileLevel.getRandom(), 2, 5, 0);
+//                        projectileLevel.addFreshEntity(entityarrow);
 
-                                    @Override
-                                    protected void doKnockback(LivingEntity livingEntity, DamageSource damageSource) {
-                                        if (knockback > 0) {
-                                            super.doKnockback(livingEntity, damageSource);
-                                        }
-                                    }
-                                };
-                                entityToSpawn.setBaseDamage(damage);
-                                entityToSpawn.setSilent(true);
-                                return entityToSpawn;
-                            }
-                        }.getArrow(projectileLevel, 5, 1, (byte) 1);
-
-                        _entityToSpawn.setPos(_shootFrom.getX(), _shootFrom.getEyeY(), _shootFrom.getZ());
-                        _entityToSpawn.shoot(_shootFrom.getLookAngle().x, _shootFrom.getLookAngle().y, _shootFrom.getLookAngle().z, 3, 0);
-                        projectileLevel.addFreshEntity(_entityToSpawn);
+//                        Projectile _entityToSpawn = new Object() {
+//                            public Projectile getArrow(Level level, float damage, int knockback, byte piercing) {
+//                                AbstractArrow entityToSpawn = new SinnerSphereEntity(SoulEntities.SINNER_SHPERE.get(), level) {
+//                                    @Override
+//                                    public byte getPierceLevel() {
+//                                        return piercing;
+//                                    }
+//
+//                                    @Override
+//                                    protected void doKnockback(LivingEntity livingEntity, DamageSource damageSource) {
+//                                        if (knockback > 0) {
+//                                            super.doKnockback(livingEntity, damageSource);
+//                                        }
+//                                    }
+//                                };
+//                                entityToSpawn.setBaseDamage(damage);
+//                                entityToSpawn.setSilent(true);
+//                                return entityToSpawn;
+//                            }
+//                        }.getArrow(projectileLevel, 5, 1, (byte) 1);
+//
+//                        _entityToSpawn.setPos(_shootFrom.getX(), _shootFrom.getEyeY(), _shootFrom.getZ());
+//                        _entityToSpawn.shoot(_shootFrom.getLookAngle().x, _shootFrom.getLookAngle().y, _shootFrom.getLookAngle().z, 3, 0);
+//                        projectileLevel.addFreshEntity(_entityToSpawn);
                     }
 
                     return InteractionResult.SUCCESS;
