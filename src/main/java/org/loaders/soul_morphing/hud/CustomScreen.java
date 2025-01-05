@@ -10,6 +10,7 @@ import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RenderGuiEvent;
+import net.neoforged.neoforge.network.PacketDistributor;
 import org.loaders.soul_morphing.init.data.SoulAttributes;
 import org.loaders.soul_morphing.util.Souls;
 
@@ -30,7 +31,6 @@ public class CustomScreen {
         boolean hasSouls = player.getAttributes().hasAttribute(SoulAttributes.SOULS_COUNT);
         if (!hasSouls)
             return;
-
         int frame = (int) Math.ceil((double) ((Souls.getSouls(player) * 100) / Souls.getMaxSouls(player)) / 10);
         frame = Math.min(frame, 10);
 

@@ -18,7 +18,8 @@ public class GameClientListener {
     @SubscribeEvent
     public static void onPlayerTick(PlayerTickEvent.Pre event) {
         Player player = Minecraft.getInstance().player;
-        if (player != null)
+        if (player != null) {
             PacketDistributor.sendToServer(new SoulsData(Souls.getSouls(player), Souls.getMaxSouls(player)));
+        }
     }
 }
