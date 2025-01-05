@@ -13,7 +13,8 @@ import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.loaders.soul_morphing.entity.custom.CursedSkeletonEntity;
-import org.loaders.soul_morphing.entity.custom.SinnerSphereEntity;
+import org.loaders.soul_morphing.entity.custom.SinnerHeavySphereEntity;
+import org.loaders.soul_morphing.entity.custom.SinnerLightSphereEntity;
 
 import java.util.function.Supplier;
 
@@ -29,8 +30,11 @@ public class SoulEntities {
                     .build(ResourceKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MODID, "cursed_skeleton"))));
 
 
-    public static final DeferredHolder<EntityType<?>, EntityType<SinnerSphereEntity>> SINNER_SHPERE = register("sinner_shpere",
-            EntityType.Builder.<SinnerSphereEntity>of(SinnerSphereEntity::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+    public static final DeferredHolder<EntityType<?>, EntityType<SinnerLightSphereEntity>> SINNER_LIGHT_SHPERE = register("sinner_light_shpere",
+            EntityType.Builder.<SinnerLightSphereEntity>of(SinnerLightSphereEntity::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(0.5f, 0.5f));
+
+    public static final DeferredHolder<EntityType<?>, EntityType<SinnerHeavySphereEntity>> SINNER_HEAVY_SHPERE = register("sinner_heavy_shpere",
+            EntityType.Builder.<SinnerHeavySphereEntity>of(SinnerHeavySphereEntity::new, MobCategory.MISC).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(1).sized(3f, 3f));
 
     private static <T extends Entity> DeferredHolder<EntityType<?>, EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
         return ENTITY_TYPES.register(registryname, () -> entityTypeBuilder.build(ResourceKey.create(ENTITY_TYPES.getRegistryKey(), ResourceLocation.fromNamespaceAndPath(MODID, registryname))));

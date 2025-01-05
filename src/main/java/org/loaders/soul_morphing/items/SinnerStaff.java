@@ -9,7 +9,8 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
-import org.loaders.soul_morphing.entity.custom.SinnerSphereEntity;
+import org.loaders.soul_morphing.entity.custom.SinnerHeavySphereEntity;
+import org.loaders.soul_morphing.entity.custom.SinnerLightSphereEntity;
 
 import static org.loaders.soul_morphing.Soul_morphing.MODID;
 import static org.loaders.soul_morphing.init.SoulItems.ITEMS;
@@ -29,6 +30,7 @@ public class SinnerStaff extends Item {
             if (player.isShiftKeyDown()) {
                 changeMode();
                 player.displayClientMessage(Component.literal("Mode: " + mode), true);
+                return InteractionResult.SUCCESS;
             }
 
             switch (mode) {
@@ -36,40 +38,17 @@ public class SinnerStaff extends Item {
                     Entity _shootFrom = player;
                     Level projectileLevel = _shootFrom.level();
                     if (!projectileLevel.isClientSide()) {
-//                        SinnerSphereEntity entityarrow = new SinnerSphereEntity(SoulEntities.SINNER_SHPERE.get(), player, projectileLevel, null);
-//                        entityarrow.setPos(_shootFrom.getX(), _shootFrom.getEyeY(), _shootFrom.getZ());
-                        SinnerSphereEntity.shoot(projectileLevel, player, projectileLevel.getRandom(), 2, 5, 0);
-//                        projectileLevel.addFreshEntity(entityarrow);
-
-//                        Projectile _entityToSpawn = new Object() {
-//                            public Projectile getArrow(Level level, float damage, int knockback, byte piercing) {
-//                                AbstractArrow entityToSpawn = new SinnerSphereEntity(SoulEntities.SINNER_SHPERE.get(), level) {
-//                                    @Override
-//                                    public byte getPierceLevel() {
-//                                        return piercing;
-//                                    }
-//
-//                                    @Override
-//                                    protected void doKnockback(LivingEntity livingEntity, DamageSource damageSource) {
-//                                        if (knockback > 0) {
-//                                            super.doKnockback(livingEntity, damageSource);
-//                                        }
-//                                    }
-//                                };
-//                                entityToSpawn.setBaseDamage(damage);
-//                                entityToSpawn.setSilent(true);
-//                                return entityToSpawn;
-//                            }
-//                        }.getArrow(projectileLevel, 5, 1, (byte) 1);
-//
-//                        _entityToSpawn.setPos(_shootFrom.getX(), _shootFrom.getEyeY(), _shootFrom.getZ());
-//                        _entityToSpawn.shoot(_shootFrom.getLookAngle().x, _shootFrom.getLookAngle().y, _shootFrom.getLookAngle().z, 3, 0);
-//                        projectileLevel.addFreshEntity(_entityToSpawn);
+                        SinnerLightSphereEntity.shoot(projectileLevel, player, projectileLevel.getRandom(), 2, 5, 0);
                     }
 
-                    return InteractionResult.SUCCESS;
+                    return InteractionResult.PASS;
                 }
                 case 1 -> {
+                    Level projectileLevel = player.level();
+                    if (!projectileLevel.isClientSide()) {
+                        SinnerHeavySphereEntity.shoot(projectileLevel, player, projectileLevel.getRandom(), 2, 20, 3);
+                    }
+                    player.getCooldowns().addCooldown(ResourceLocation.fromNamespaceAndPath(MODID, "sinners_staff"), 30);
                     return InteractionResult.PASS;
                 }
             }

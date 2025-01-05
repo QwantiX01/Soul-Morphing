@@ -20,33 +20,33 @@ import org.loaders.soul_morphing.init.SoulEntities;
 import javax.annotation.Nullable;
 
 @OnlyIn(value = Dist.CLIENT, _interface = ItemSupplier.class)
-public class SinnerSphereEntity extends AbstractArrow implements ItemSupplier {
+public class SinnerHeavySphereEntity extends AbstractArrow implements ItemSupplier {
 
     public static final ItemStack PROJECTILE_ITEM = new ItemStack(Blocks.AIR);
     private int knockback = 0;
 
-    public SinnerSphereEntity(EntityType<? extends SinnerSphereEntity> type, Level world) {
+    public SinnerHeavySphereEntity(EntityType<? extends SinnerHeavySphereEntity> type, Level world) {
         super(type, world);
     }
 
-    public SinnerSphereEntity(EntityType<? extends SinnerSphereEntity> type, double x, double y, double z, Level world, @Nullable ItemStack firedFromWeapon) {
+    public SinnerHeavySphereEntity(EntityType<? extends SinnerHeavySphereEntity> type, double x, double y, double z, Level world, @Nullable ItemStack firedFromWeapon) {
         super(type, x, y, z, world, PROJECTILE_ITEM, firedFromWeapon);
     }
 
-    public SinnerSphereEntity(EntityType<? extends SinnerSphereEntity> type, LivingEntity entity, Level world, @Nullable ItemStack firedFromWeapon) {
+    public SinnerHeavySphereEntity(EntityType<? extends SinnerHeavySphereEntity> type, LivingEntity entity, Level world, @Nullable ItemStack firedFromWeapon) {
         super(type, entity, world, PROJECTILE_ITEM, firedFromWeapon);
     }
 
-    public static SinnerSphereEntity shoot(Level world, LivingEntity entity, RandomSource source) {
+    public static SinnerHeavySphereEntity shoot(Level world, LivingEntity entity, RandomSource source) {
         return shoot(world, entity, source, 1f, 5, 5);
     }
 
-    public static SinnerSphereEntity shoot(Level world, LivingEntity entity, RandomSource source, float pullingPower) {
+    public static SinnerHeavySphereEntity shoot(Level world, LivingEntity entity, RandomSource source, float pullingPower) {
         return shoot(world, entity, source, pullingPower, 5, 5);
     }
 
-    public static SinnerSphereEntity shoot(Level world, LivingEntity entity, RandomSource random, float power, double damage, int knockback) {
-        SinnerSphereEntity entityarrow = new SinnerSphereEntity(SoulEntities.SINNER_SHPERE.get(), entity, world, null);
+    public static SinnerHeavySphereEntity shoot(Level world, LivingEntity entity, RandomSource random, float power, double damage, int knockback) {
+        SinnerHeavySphereEntity entityarrow = new SinnerHeavySphereEntity(SoulEntities.SINNER_HEAVY_SHPERE.get(), entity, world, null);
         entityarrow.shoot(entity.getViewVector(1).x, entity.getViewVector(1).y, entity.getViewVector(1).z, power * 2, 0);
         entityarrow.setSilent(true);
         entityarrow.setCritArrow(false);
@@ -56,8 +56,8 @@ public class SinnerSphereEntity extends AbstractArrow implements ItemSupplier {
         return entityarrow;
     }
 
-    public static SinnerSphereEntity shoot(LivingEntity entity, LivingEntity target) {
-        SinnerSphereEntity entityarrow = new SinnerSphereEntity(SoulEntities.SINNER_SHPERE.get(), entity, entity.level(), null);
+    public static SinnerHeavySphereEntity shoot(LivingEntity entity, LivingEntity target) {
+        SinnerHeavySphereEntity entityarrow = new SinnerHeavySphereEntity(SoulEntities.SINNER_HEAVY_SHPERE.get(), entity, entity.level(), null);
         double dx = target.getX() - entity.getX();
         double dy = target.getY() + target.getEyeHeight() - 1.1;
         double dz = target.getZ() - entity.getZ();
@@ -107,17 +107,45 @@ public class SinnerSphereEntity extends AbstractArrow implements ItemSupplier {
         super.tick();
         Level level = this.level();
         if (level instanceof ServerLevel serverLevel) {
-            serverLevel.sendParticles(
-                    ParticleTypes.SOUL_FIRE_FLAME,
-                    this.getX(),
-                    this.getY(),
-                    this.getZ(),
-                    10,
-                    0.1,
-                    0.1,
-                    0.1,
-                    0.02
-            );
+            for (int sphereRadius = 0; sphereRadius < 10; sphereRadius++) {
+                int particles = 50;
+                for (int i = 0; i < particles; i++) {
+                    double phi = random.nextDouble() * 2 * Math.PI;
+                    double theta = random.nextDouble() * Math.PI;
+                    double x = Math.sin(theta) * Math.cos(phi) * sphereRadius;
+                    double y = Math.sin(theta) * Math.sin(phi) * sphereRadius;
+                    double z = Math.cos(theta) * sphereRadius;
+                    double baseX = this.getX();
+                    double baseY = this.getY() + 1.0;
+                    double baseZ = this.getZ();
+                    double velocityX = x / sphereRadius * 0.1;
+                    double velocityY = y / sphereRadius * 0.1;
+                    double velocityZ = z / sphereRadius * 0.1;
+                    serverLevel.sendParticles(
+                            ParticleTypes.FLAME,
+                            baseX + x,
+                            baseY + y,
+                            baseZ + z,
+                            1, // particle count
+                            velocityX,
+                            velocityY,
+                            velocityZ,
+                            0.02 // speed
+                    );
+                }
+
+            }
+//            serverLevel.sendParticles(
+//                    ParticleTypes.FLAME,
+//                    this.getX(),
+//                    this.getY(),
+//                    this.getZ(),
+//                    7,
+//                    0.1,
+//                    0.1,
+//                    0.1,
+//                    0.02
+//            );
         }
         if (this.isInGround())
             this.discard();
