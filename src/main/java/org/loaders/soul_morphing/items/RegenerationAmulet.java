@@ -28,9 +28,8 @@ public class RegenerationAmulet extends Item {
             long tick = level.getGameTime();
             int regenerationSpeedTicks = Souls.getTotalSoulsRegeneration(player);
             if (tick % (60 - (regenerationSpeedTicks * 10L)) == 0 && tick != lastTick) {
-                player.displayClientMessage(Component.literal("Server"), false);
-//                Souls.addSouls(player, 1);
-                PacketDistributor.sendToServer(new SoulsData(Souls.getSouls(player) + 1, Souls.getMaxSouls(player)));
+                Souls.addSouls(player, 1);
+                PacketDistributor.sendToServer(new SoulsData(Souls.getSouls(player), Souls.getMaxSouls(player)));
                 lastTick = tick;
             }
         }
