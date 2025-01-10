@@ -16,4 +16,13 @@ public class ToolMaterials {
             16,
             SPIRITIUM_MATERIALS
     );
+
+    public static final ToolMaterial WITHERING_MATERIAL = new ToolMaterial(
+            BlockTags.create(ResourceLocation.fromNamespaceAndPath(MODID, "incompatible_with_spiritium_materials")),
+            2742,
+            10f,
+            8f,
+            16,
+            SPIRITIUM_MATERIALS
+    );
 }

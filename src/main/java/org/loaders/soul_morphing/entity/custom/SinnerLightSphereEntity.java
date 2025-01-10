@@ -16,6 +16,7 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import org.loaders.soul_morphing.init.SoulEntities;
+import org.loaders.soul_morphing.init.SoulParticleTypes;
 
 import javax.annotation.Nullable;
 
@@ -83,7 +84,7 @@ public class SinnerLightSphereEntity extends AbstractArrow implements ItemSuppli
         Level level = this.level();
         if (level instanceof ServerLevel serverLevel) {
             serverLevel.sendParticles(
-                    ParticleTypes.SOUL_FIRE_FLAME,
+                    SoulParticleTypes.SINN_L_PARTICLE.get(),
                     this.getX(),
                     this.getY(),
                     this.getZ(),

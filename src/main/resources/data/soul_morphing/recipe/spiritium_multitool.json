@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "P": "soul_morphing:spiritium_pickaxe",
+    "I": "soul_morphing:spiritium_ingot",
+    "Z": "soul_morphing:spiritium_shovel",
+    "D": "soul_morphing:spiritium_hoe",
+    "A": "soul_morphing:spiritium_axe",
+    "S": "soul_morphing:sinister_core"
+
+  },
+  "pattern": [
+    "PIA",
+    "ISI",
+    "ZID"
+  ],
+  "result": {
+    "count": 1,
+    "id": "soul_morphing:spiritium_multitool"
+  }
+}

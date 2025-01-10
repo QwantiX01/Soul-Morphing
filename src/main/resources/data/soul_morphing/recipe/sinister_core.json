@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": "soul_morphing:cursed_bone",
+    "E": "soul_morphing:ender_shell",
+    "I": "soul_morphing:ignited_soul",
+    "S": "soul_morphing:spiritium_ingot"
+  },
+  "pattern": [
+    "CSE",
+    "SIS",
+    "ESC"
+  ],
+  "result": {
+    "count": 1,
+    "id": "soul_morphing:sinister_core"
+  }
+}

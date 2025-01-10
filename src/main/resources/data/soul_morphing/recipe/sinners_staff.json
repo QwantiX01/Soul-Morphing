@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": "soul_morphing:sinister_core",
+    "B": "soul_morphing:cursed_bone",
+    "E": "soul_morphing:ender_shell"
+  },
+  "pattern": [
+    " ES",
+    " BE",
+    "B  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "soul_morphing:sinners_staff"
+  }
+}

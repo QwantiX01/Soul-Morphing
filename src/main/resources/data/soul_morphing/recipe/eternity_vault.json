@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": "soul_morphing:ender_shell",
+    "A": "soul_morphing:spiritium_ingot",
+    "B": "minecraft:blackstone"
+  },
+  "pattern": [
+    "ASA",
+    " A ",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "soul_morphing:eternity_vault"
+  }
+}

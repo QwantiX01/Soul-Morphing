@@ -15,10 +15,14 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
-import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import org.loaders.soul_morphing.entity.custom.models.CursedSkeletonModel;
+import org.loaders.soul_morphing.entity.custom.models.DeevourerModel;
+import org.loaders.soul_morphing.entity.custom.models.IgniteSpiritModel;
+import org.loaders.soul_morphing.entity.custom.models.SpiritHoundModel;
 import org.loaders.soul_morphing.entity.custom.renderers.CursedSkeletonRenderer;
+import org.loaders.soul_morphing.entity.custom.renderers.DeevourerRenderer;
+import org.loaders.soul_morphing.entity.custom.renderers.IgniteSpiritRenderer;
+import org.loaders.soul_morphing.entity.custom.renderers.SpiritHoundRenderer;
 import org.loaders.soul_morphing.init.*;
 import org.loaders.soul_morphing.init.data.SoulAttributes;
 import org.loaders.soul_morphing.util.Souls;
@@ -57,6 +61,9 @@ public class Soul_morphing {
                             livingEntity != null && (livingEntity.getItemInHand(InteractionHand.MAIN_HAND) == itemStack || livingEntity.getItemInHand(InteractionHand.OFF_HAND) == itemStack) && Souls.getSouls(livingEntity) >= 8 ? 1 : 0);
 
             EntityRenderers.register(SoulEntities.CURSED_SKELETON_ENTITY.get(), context -> new CursedSkeletonRenderer(context, new CursedSkeletonModel<>(context.bakeLayer(CursedSkeletonModel.LAYER_LOCATION)), 0.5f));
+            EntityRenderers.register(SoulEntities.IGNITE_SPIRIT_ENTITY.get(), context -> new IgniteSpiritRenderer(context, new IgniteSpiritModel<>(context.bakeLayer(IgniteSpiritModel.LAYER_LOCATION)), 0.5f));
+            EntityRenderers.register(SoulEntities.DEVOURER.get(), context -> new DeevourerRenderer(context, new DeevourerModel<>(context.bakeLayer(DeevourerModel.LAYER_LOCATION)), 0.5f));
+            EntityRenderers.register(SoulEntities.SPIRIT_HOUND.get(), context -> new SpiritHoundRenderer(context, new SpiritHoundModel<>(context.bakeLayer(SpiritHoundModel.LAYER_LOCATION)), 0.5f));
         }
     }
 

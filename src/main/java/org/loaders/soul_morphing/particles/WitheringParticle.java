@@ -4,32 +4,32 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
 
-public class MistParticle extends TextureSheetParticle {
+public class WitheringParticle extends TextureSheetParticle {
     private final SpriteSet spriteSet;
 
-    public static MistParticleProvider provider(SpriteSet spriteSet) {
-        return new MistParticleProvider(spriteSet);
+    public static WitheringParticleProvider provider(SpriteSet spriteSet) {
+        return new WitheringParticleProvider(spriteSet);
     }
 
-    public static class MistParticleProvider implements ParticleProvider<SimpleParticleType> {
+    public static class WitheringParticleProvider implements ParticleProvider<SimpleParticleType> {
         private final SpriteSet spriteSet;
 
-        public MistParticleProvider(SpriteSet spriteSet) {
+        public WitheringParticleProvider(SpriteSet spriteSet) {
             this.spriteSet = spriteSet;
         }
 
         public Particle createParticle(SimpleParticleType typeIn, ClientLevel worldIn, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-            return new MistParticle(worldIn, x, y, z, xSpeed, ySpeed, zSpeed, this.spriteSet);
+            return new WitheringParticle(worldIn, x, y, z, xSpeed, ySpeed, zSpeed, this.spriteSet);
         }
     }
 
-    public MistParticle(ClientLevel world, double x, double y, double z, double vx, double vy, double vz, SpriteSet spriteSet) {
+    public WitheringParticle(ClientLevel world, double x, double y, double z, double vx, double vy, double vz, SpriteSet spriteSet) {
         super(world, x, y, z);
         this.spriteSet = spriteSet;
-        this.setSize(0.2f, 0.2f);
-        this.lifetime = 70;
+        this.setSize(0.4f, 0.4f);
+        this.lifetime = 15;
         this.gravity = 0f;
-        this.hasPhysics = true;
+        this.hasPhysics = false;
         this.xd = vx * 1;
         this.yd = vy * 1;
         this.zd = vz * 1;

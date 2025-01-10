@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": "soul_morphing:sinister_core",
+    "A": "soul_morphing:spiritium_ingot",
+    "B": "soul_morphing:ash_ingot",
+    "O": "soul_morphing:caged_soul"
+  },
+  "pattern": [
+    "B B",
+    "SOS",
+    "AAA"
+  ],
+  "result": {
+    "count": 1,
+    "id": "soul_morphing:mist_amulet"
+  }
+}

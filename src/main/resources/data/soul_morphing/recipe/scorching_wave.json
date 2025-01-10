@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": "soul_morphing:sinister_core",
+    "B": "soul_morphing:ash_ingot",
+    "O": "soul_morphing:ignited_soul"
+  },
+  "pattern": [
+    "BBO",
+    "BSB",
+    "OBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "soul_morphing:scorching_wave"
+  }
+}

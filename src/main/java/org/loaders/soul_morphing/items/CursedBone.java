@@ -38,7 +38,7 @@ public class CursedBone extends Item {
 
     @Override
     public InteractionResult use(Level level, Player player, InteractionHand hand) {
-        Souls.addSouls(player, 20);
+        Souls.addSouls(player, 100);
         return super.use(level, player, hand);
     }
 
@@ -47,7 +47,6 @@ public class CursedBone extends Item {
         Level level = context.getLevel();
         ItemStack itemstack = context.getItemInHand();
         BlockPos blockpos = context.getClickedPos();
-        Direction direction = context.getClickedFace();
         BlockState blockstate = level.getBlockState(blockpos);
 
         if (level.getBlockEntity(blockpos) instanceof Spawner spawner) {

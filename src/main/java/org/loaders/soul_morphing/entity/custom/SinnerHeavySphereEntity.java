@@ -1,6 +1,5 @@
 package org.loaders.soul_morphing.entity.custom;
 
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
@@ -16,6 +15,7 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import org.loaders.soul_morphing.init.SoulEntities;
+import org.loaders.soul_morphing.init.SoulParticleTypes;
 
 import javax.annotation.Nullable;
 
@@ -27,10 +27,6 @@ public class SinnerHeavySphereEntity extends AbstractArrow implements ItemSuppli
 
     public SinnerHeavySphereEntity(EntityType<? extends SinnerHeavySphereEntity> type, Level world) {
         super(type, world);
-    }
-
-    public SinnerHeavySphereEntity(EntityType<? extends SinnerHeavySphereEntity> type, double x, double y, double z, Level world, @Nullable ItemStack firedFromWeapon) {
-        super(type, x, y, z, world, PROJECTILE_ITEM, firedFromWeapon);
     }
 
     public SinnerHeavySphereEntity(EntityType<? extends SinnerHeavySphereEntity> type, LivingEntity entity, Level world, @Nullable ItemStack firedFromWeapon) {
@@ -107,7 +103,7 @@ public class SinnerHeavySphereEntity extends AbstractArrow implements ItemSuppli
         super.tick();
         Level level = this.level();
         if (level instanceof ServerLevel serverLevel) {
-            for (int sphereRadius = 0; sphereRadius < 10; sphereRadius++) {
+            for (int sphereRadius = 0; sphereRadius < 7; sphereRadius++) {
                 int particles = 50;
                 for (int i = 0; i < particles; i++) {
                     double phi = random.nextDouble() * 2 * Math.PI;
@@ -122,7 +118,7 @@ public class SinnerHeavySphereEntity extends AbstractArrow implements ItemSuppli
                     double velocityY = y / sphereRadius * 0.1;
                     double velocityZ = z / sphereRadius * 0.1;
                     serverLevel.sendParticles(
-                            ParticleTypes.FLAME,
+                            SoulParticleTypes.SINN_H_PARTICLE.get(),
                             baseX + x,
                             baseY + y,
                             baseZ + z,

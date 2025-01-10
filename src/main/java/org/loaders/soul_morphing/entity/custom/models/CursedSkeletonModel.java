@@ -1,7 +1,5 @@
 package org.loaders.soul_morphing.entity.custom.models;
 
-import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -9,8 +7,8 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
-import org.loaders.soul_morphing.entity.custom.renderers.states.CursedSkeletonRenderState;
 import org.loaders.soul_morphing.entity.custom.animations.CursedSkeletonAnimations;
+import org.loaders.soul_morphing.entity.custom.renderers.states.CursedSkeletonRenderState;
 
 import static org.loaders.soul_morphing.Soul_morphing.MODID;
 
@@ -75,14 +73,4 @@ public class CursedSkeletonModel<T extends CursedSkeletonRenderState> extends En
         this.animateWalk(CursedSkeletonAnimations.WALK, entity.walkAnimationPos, entity.walkAnimationSpeed * 5F, 1.0F, 5.0F);
     }
 
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        Body.render(poseStack, vertexConsumer, packedLight, packedOverlay);
-        waist.render(poseStack, vertexConsumer, packedLight, packedOverlay);
-        rightLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay);
-        leftLeg.render(poseStack, vertexConsumer, packedLight, packedOverlay);
-        head.render(poseStack, vertexConsumer, packedLight, packedOverlay);
-        leftHand.render(poseStack, vertexConsumer, packedLight, packedOverlay);
-        rightHand.render(poseStack, vertexConsumer, packedLight, packedOverlay);
-        stick.render(poseStack, vertexConsumer, packedLight, packedOverlay);
-    }
 }

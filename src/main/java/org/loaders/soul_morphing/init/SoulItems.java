@@ -15,6 +15,7 @@ import org.loaders.soul_morphing.items.armor.SpiritiumHelmet;
 import org.loaders.soul_morphing.items.armor.SpiritiumLeggings;
 import org.loaders.soul_morphing.items.tools.SoulMorphist;
 import org.loaders.soul_morphing.items.tools.SpiritiumMultitool;
+import org.loaders.soul_morphing.items.tools.WitheringSword;
 
 import static org.loaders.soul_morphing.Soul_morphing.MODID;
 import static org.loaders.soul_morphing.init.data.ToolMaterials.SPIRITIUM_MATERIAL;
@@ -50,6 +51,7 @@ public class SoulItems {
     public static final DeferredHolder<Item, Item> DUSK_SOUL = registerItem("dusk_soul");
     public static final DeferredHolder<Item, Item> SINISTER_CORE = registerItem("sinister_core");
     public static final DeferredHolder<Item, Item> ENDER_SHELL = registerItem("ender_shell");
+    public static final DeferredHolder<Item, Item> IGNITED_SOUL = registerItem("ignited_soul");
     public static final DeferredItem<Item> CURSED_BONE = ITEMS.registerItem("cursed_bone", CursedBone::new);
 
 
@@ -72,6 +74,8 @@ public class SoulItems {
 
     public static final DeferredHolder<Item, SwordItem> SOUL_MORPHIST //Sword
             = ITEMS.registerItem("soul_morphist", props -> new SoulMorphist());
+    public static final DeferredHolder<Item, SwordItem> WITHERING_SWORD //Sword
+            = ITEMS.registerItem("withering_sword", props -> new WitheringSword());
     public static final DeferredHolder<Item, DiggerItem> SPIRITIUM_MULTITOOL
             = ITEMS.registerItem("spiritium_multitool", props -> new SpiritiumMultitool());
     public static final DeferredHolder<Item, PickaxeItem> SPIRITIUM_PICKAXE =
@@ -92,5 +96,6 @@ public class SoulItems {
 
 
     //MISC
-    public static final DeferredHolder<Item, Item> SINNER_BALL = registerItem("sinner_ball");
+    public static final DeferredHolder<Item, Item> VICIOUS_SKULL = ITEMS.registerItem("vicious_skull", ViciousSkull::new);
+    public static final DeferredHolder<Item, Item> TERROR_STAR = registerItem("terror_star");
 }
