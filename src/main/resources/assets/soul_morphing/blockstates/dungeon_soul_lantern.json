@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "soul_morphing:block/dungeon_soul_lantern"
+    },
+    "hanging=true": {
+      "model": "soul_morphing:block/dungeon_soul_lantern"
+    }
+  }
+}
