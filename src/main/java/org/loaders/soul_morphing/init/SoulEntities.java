@@ -28,6 +28,12 @@ public class SoulEntities {
                     .sized(0.6F, 2.25F)
                     .build(ResourceKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MODID, "cursed_skeleton"))));
 
+    public static final Supplier<EntityType<? extends HellBoarEntity>> HELL_BOAR_ENTITY =
+            ENTITY_TYPES.register("hellboar", () -> EntityType.Builder
+                    .of(HellBoarEntity::new, MobCategory.MONSTER)
+                    .sized(0.6F, 2.25F)
+                    .build(ResourceKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MODID, "hellboar"))));
+
     public static final Supplier<EntityType<? extends IgniteSpiritEntity>> IGNITE_SPIRIT_ENTITY =
             ENTITY_TYPES.register("ignite_spirit", () -> EntityType.Builder
                     .of(IgniteSpiritEntity::new, MobCategory.MONSTER)
@@ -39,6 +45,12 @@ public class SoulEntities {
                     .of(DeevourerEntity::new, MobCategory.MONSTER)
                     .sized(0.6F, 2.25F)
                     .build(ResourceKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MODID, "deevourer"))));
+
+    public static final Supplier<EntityType<? extends InfernalBlazeEntity>> INFERNAL_BLAZE =
+            ENTITY_TYPES.register("infernal_blaze", () -> EntityType.Builder
+                    .of(InfernalBlazeEntity::new, MobCategory.MONSTER)
+                    .sized(1.5F, 2.60F)
+                    .build(ResourceKey.create(Registries.ENTITY_TYPE, ResourceLocation.fromNamespaceAndPath(MODID, "infernal_blaze"))));
 
     public static final DeferredHolder<EntityType<?>, EntityType<SinnerLightSphereEntity>> SINNER_LIGHT_SHPERE = register(
             "sinner_light_shpere",
@@ -75,6 +87,8 @@ public class SoulEntities {
         event.put(IGNITE_SPIRIT_ENTITY.get(), IgniteSpiritEntity.createAttributes().build());
         event.put(DEVOURER.get(), DeevourerEntity.createAttributes().build());
         event.put(SPIRIT_HOUND.get(), DeevourerEntity.createAttributes().build());
+        event.put(HELL_BOAR_ENTITY.get(), HellBoarEntity.createAttributes().build());
+        event.put(INFERNAL_BLAZE.get(), InfernalBlazeEntity.createAttributes().build());
     }
 }
 

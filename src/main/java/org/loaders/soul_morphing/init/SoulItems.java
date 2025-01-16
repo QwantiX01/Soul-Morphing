@@ -98,4 +98,15 @@ public class SoulItems {
     //MISC
     public static final DeferredHolder<Item, Item> VICIOUS_SKULL = ITEMS.registerItem("vicious_skull", ViciousSkull::new);
     public static final DeferredHolder<Item, Item> TERROR_STAR = registerItem("terror_star");
+    public static final DeferredHolder<Item, Item> EBOBA = registerItem("eboba");
+
+    // ========================================== DUNGEON BLOCK ITEMS ==================================================
+
+    public static final DeferredHolder<Item, BlockItem> SHATTERED_DUNGEON_BRICK = ITEMS.registerSimpleBlockItem("shattered_dungeon_brick", SoulBlocks.SHATTERED_DUNGEON_BRICK, new Item.Properties());
+    public static final DeferredHolder<Item, BlockItem> DUNGEON_SOUL_LANTERN = ITEMS.registerSimpleBlockItem("dungeon_soul_lantern", SoulBlocks.DUNGEON_SOUL_LANTERN, new Item.Properties());
+    public static final DeferredHolder<Item, BlockItem> DUNGEON_LEAVES = ITEMS.registerSimpleBlockItem("dungeon_leaves", SoulBlocks.DUNGEON_LEAVES, new Item.Properties());
+    public static final DeferredHolder<Item, BlockItem> DUNGEON_LAMP = ITEMS.registerSimpleBlockItem("dungeon_lamp", SoulBlocks.DUNGEON_LAMP, new Item.Properties());
+    public static final DeferredHolder<Item, BlockItem> DUNGEON_BRICK2 = ITEMS.registerSimpleBlockItem("dungeon_brick2", SoulBlocks.DUNGEON_BRICK2, new Item.Properties());
+    public static final DeferredHolder<Item, BlockItem> DUNGEON_BRICK = ITEMS.registerSimpleBlockItem("dungeon_brick", SoulBlocks.DUNGEON_BRICK, new Item.Properties());
+    public static final DeferredHolder<Item, BlockItem> DUNGEON_BOTTOM = ITEMS.registerSimpleBlockItem("dungeon_bottom", SoulBlocks.DUNGEON_BOTTOM, new Item.Properties());
 }

@@ -4,7 +4,7 @@
       "model": "soul_morphing:block/dungeon_soul_lantern"
     },
     "hanging=true": {
-      "model": "soul_morphing:block/dungeon_soul_lantern"
+      "model": "soul_morphing:block/hanging_dungeon_soul_lantern"
     }
   }
 }

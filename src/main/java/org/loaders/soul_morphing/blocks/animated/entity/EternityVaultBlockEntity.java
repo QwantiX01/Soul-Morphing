@@ -16,6 +16,8 @@ import software.bernie.geckolib.util.RenderUtil;
 
 import static org.loaders.soul_morphing.blocks.animated.EternityVaultMode.*;
 
+import javax.annotation.Nonnull;
+
 
 public class EternityVaultBlockEntity extends BlockEntity implements GeoAnimatable {
     public int souls;
@@ -35,13 +37,13 @@ public class EternityVaultBlockEntity extends BlockEntity implements GeoAnimatab
     }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+    protected void loadAdditional(@Nonnull CompoundTag tag,@Nonnull HolderLookup.Provider registries) {
         this.souls = tag.getInt("souls");
         this.mode = tag.getInt("mode");
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
+    protected void saveAdditional(@Nonnull CompoundTag tag, @Nonnull  HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
         tag.putInt("souls", this.souls);
     }

@@ -15,13 +15,13 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
 
-public class DeevourerEntity extends Monster {
+public class HellBoarEntity extends Monster {
     public static final AnimationState IDLE_ANIMATION_STATE = new AnimationState();
     public static final AnimationState WALK_ANIMATION_STATE = new AnimationState();
     public static final AnimationState ATTACK_ANIMATION_STATE = new AnimationState();
     public static int animationTimeout = 0;
 
-    public DeevourerEntity(EntityType<? extends Monster> entityType, Level level) {
+    public HellBoarEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
     }
 
