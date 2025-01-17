@@ -1,5 +1,7 @@
 package org.loaders.soul_morphing.init;
 
+import static org.loaders.soul_morphing.Soul_morphing.MODID;
+
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -12,8 +14,6 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import org.loaders.soul_morphing.blocks.SpiritiumOreBlock;
 import org.loaders.soul_morphing.blocks.animated.EternityVaultBlock;
 import org.loaders.soul_morphing.blocks.animated.VoidFurnaceBlock;
-
-import static org.loaders.soul_morphing.Soul_morphing.MODID;
 
 public class SoulBlocks {
     // ============================================== REGISTRY =========================================================
@@ -92,5 +92,94 @@ public class SoulBlocks {
                     .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(MODID, "dungeon_bottom")))
     );
 
+  public static final DeferredHolder<Block, Block> DAUNGEON_CRYSTAL3 =
+      BLOCKS.registerSimpleBlock(
+          "daungeon_crystal3",
+          BlockBehaviour.Properties.of()
+              .setId(
+                  ResourceKey.create(
+                      Registries.BLOCK,
+                      ResourceLocation.fromNamespaceAndPath(MODID, "daungeon_crystal3"))));
 
+  public static final DeferredHolder<Block, Block> DUNGEON_CRYSTAL =
+      BLOCKS.registerSimpleBlock(
+          "dungeon_crystal",
+          BlockBehaviour.Properties.of()
+              .setId(
+                  ResourceKey.create(
+                      Registries.BLOCK,
+                      ResourceLocation.fromNamespaceAndPath(MODID, "dungeon_crystal"))));
+
+  public static final DeferredHolder<Block, Block> DUNGEON_CRYSTAL2 =
+      BLOCKS.registerSimpleBlock(
+          "dungeon_crystal2",
+          BlockBehaviour.Properties.of()
+              .setId(
+                  ResourceKey.create(
+                      Registries.BLOCK,
+                      ResourceLocation.fromNamespaceAndPath(MODID, "dungeon_crystal2"))));
+
+  public static final DeferredHolder<Block, Block> DUNGEON_CRYSTAL4PNG =
+      BLOCKS.registerSimpleBlock(
+          "dungeon_crystal4png",
+          BlockBehaviour.Properties.of()
+              .setId(
+                  ResourceKey.create(
+                      Registries.BLOCK,
+                      ResourceLocation.fromNamespaceAndPath(MODID, "dungeon_crystal4png"))));
+
+  public static final DeferredHolder<Block, Block> DUNGEON_CRYSTAL5PNG =
+      BLOCKS.registerSimpleBlock(
+          "dungeon_crystal5png",
+          BlockBehaviour.Properties.of()
+              .setId(
+                  ResourceKey.create(
+                      Registries.BLOCK,
+                      ResourceLocation.fromNamespaceAndPath(MODID, "dungeon_crystal5png"))));
+
+  public static final DeferredHolder<Block, Block> DUNGEON_DARK_MARBLE =
+      BLOCKS.registerSimpleBlock(
+          "dungeon_dark_marble",
+          BlockBehaviour.Properties.of()
+              .setId(
+                  ResourceKey.create(
+                      Registries.BLOCK,
+                      ResourceLocation.fromNamespaceAndPath(MODID, "dungeon_dark_marble"))));
+
+  public static final DeferredHolder<Block, Block> DUNGEON_DARK_MARBLE2 =
+      BLOCKS.registerSimpleBlock(
+          "dungeon_dark_marble2",
+          BlockBehaviour.Properties.of()
+              .setId(
+                  ResourceKey.create(
+                      Registries.BLOCK,
+                      ResourceLocation.fromNamespaceAndPath(MODID, "dungeon_dark_marble2"))));
+
+  public static final DeferredHolder<Block, Block> DUNGEON_PURPLE_LIGHT_MARBLE =
+      BLOCKS.registerSimpleBlock(
+          "dungeon_purple_light_marble",
+          BlockBehaviour.Properties.of()
+              .setId(
+                  ResourceKey.create(
+                      Registries.BLOCK,
+                      ResourceLocation.fromNamespaceAndPath(
+                          MODID, "dungeon_purple_light_marble"))));
+
+  public static final DeferredHolder<Block, Block> DUNGEON_ROCK =
+      BLOCKS.registerSimpleBlock(
+          "dungeon_rock",
+          BlockBehaviour.Properties.of()
+              .setId(
+                  ResourceKey.create(
+                      Registries.BLOCK,
+                      ResourceLocation.fromNamespaceAndPath(MODID, "dungeon_rock"))));
+
+  public static final DeferredHolder<Block, Block> DUNGEON_TERRACOTTA =
+      BLOCKS.registerSimpleBlock(
+          "dungeon_terracotta",
+          BlockBehaviour.Properties.of()
+              .setId(
+                  ResourceKey.create(
+                      Registries.BLOCK,
+                      ResourceLocation.fromNamespaceAndPath(MODID, "dungeon_terracotta"))));
 }

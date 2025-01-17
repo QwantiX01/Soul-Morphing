@@ -63,6 +63,15 @@ public class Soul_morphing {
                   context,
                   new CursedSkeletonModel<>(context.bakeLayer(CursedSkeletonModel.LAYER_LOCATION)),
                   0.5f));
+
+      EntityRenderers.register(
+          SoulEntities.DUNGEON_GOLEM.get(),
+          context ->
+              new DungeonGolemRenderer(
+                  context,
+                  new DungeonGolemModel<>(context.bakeLayer(DungeonGolemModel.LAYER_LOCATION)),
+                  0.5f));
+
       EntityRenderers.register(
           SoulEntities.IGNITE_SPIRIT_ENTITY.get(),
           context ->
@@ -70,6 +79,7 @@ public class Soul_morphing {
                   context,
                   new IgniteSpiritModel<>(context.bakeLayer(IgniteSpiritModel.LAYER_LOCATION)),
                   0.5f));
+
       EntityRenderers.register(
           SoulEntities.DEVOURER.get(),
           context ->

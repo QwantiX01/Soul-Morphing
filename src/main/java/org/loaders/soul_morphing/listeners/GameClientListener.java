@@ -18,8 +18,14 @@ public class GameClientListener {
   public static void onPlayerTick(PlayerTickEvent.Pre event) {
     Player player = Minecraft.getInstance().player;
     if (player != null) {
-      PacketDistributor.sendToServer(
-          new SoulsData(Souls.getSouls(player), Souls.getMaxSouls(player)));
+      var playerNbt = player.getPersistentData();
+      int armorBonus = Souls.getTotalBonus(player);
+
+      if (playerNbt.getInt("soul_armor_bonus") != armorBonus) {
+        playerNbt.putInt("soul_armor_bonus", armorBonus);
+      }
+
+      PacketDistributor.sendToServer(new SoulsData(Souls.getSouls(player), 20 + armorBonus));
     }
   }
 }

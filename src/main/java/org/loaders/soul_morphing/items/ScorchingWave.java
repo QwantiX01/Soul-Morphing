@@ -39,7 +39,7 @@ public class ScorchingWave extends Item {
 
   private static final RandomSource random = RandomSource.create();
   private static float sphereRadius = 0.0f;
-  private static final float MAX_RADIUS = 10.0f; // Match the area size
+  private static final float MAX_RADIUS = 10.0f;
   private static final float EXPANSION_RATE = 0.5f;
   private static boolean isExpanding = false;
 
@@ -93,10 +93,9 @@ public class ScorchingWave extends Item {
             ResourceLocation.withDefaultNamespace("block.beacon.activate"), Optional.of(10f)));
     player.startUsingItem(hand);
 
-    // Spawn particles and continue expanding for multiple ticks
     spawnExpandingFireSphere(level, player.blockPosition(), player);
 
-    int area = 10; // Blocks
+    int area = 10;
     List<Entity> entities =
         level.getEntities(
             player,
@@ -109,9 +108,11 @@ public class ScorchingWave extends Item {
                 player.getZ() + area));
 
     for (Entity entity : entities) {
-      if (entity instanceof Projectile || entity instanceof Enemy || level instanceof ServerLevel) {
+      if (entity instanceof Projectile || entity instanceof Enemy) {
         entity.setRemainingFireTicks(600);
-        entity.hurtServer((ServerLevel) level, entity.damageSources().playerAttack(player), 8F);
+        if (level instanceof ServerLevel serverLevel) {
+          entity.hurtServer(serverLevel, entity.damageSources().playerAttack(player), 8F);
+        }
       }
     }
 

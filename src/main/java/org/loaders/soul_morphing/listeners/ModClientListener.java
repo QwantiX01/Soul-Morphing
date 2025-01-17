@@ -35,6 +35,9 @@ public class ModClientListener {
   @SubscribeEvent
   public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
     event.registerLayerDefinition(
+        DungeonGolemModel.LAYER_LOCATION, DungeonGolemModel::createBodyLayer);
+
+    event.registerLayerDefinition(
         CursedSkeletonModel.LAYER_LOCATION, CursedSkeletonModel::createBodyLayer);
 
     event.registerLayerDefinition(HellBoarModel.LAYER_LOCATION, HellBoarModel::createBodyLayer);
